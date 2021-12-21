@@ -1,5 +1,7 @@
 package com.solvd.university.DAO;
 
-public interface IUserDao<T> extends IBaseDao<T> {
+import com.solvd.university.model.User;
+
+public interface IUserDao<T> extends IBaseDao<User> {
 
 }

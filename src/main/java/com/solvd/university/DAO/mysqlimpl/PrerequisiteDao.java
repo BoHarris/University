@@ -1,12 +1,12 @@
 package com.solvd.university.DAO.mysqlimpl;
 
-import com.solvd.university.DAO.IGradeDao;
-import com.solvd.university.model.Grade;
+import com.solvd.university.DAO.IPrerequisiteDao;
+import com.solvd.university.model.Prerequisite;
 
-public class GradeDao extends AbstractMySQLDao implements IGradeDao<Grade> {
+public class PrerequisiteDao extends AbstractMySQLDao implements IPrerequisiteDao<Prerequisite>{
 
 	@Override
-	public void createEntity(Grade entity) {
+	public void createEntity(Prerequisite entity) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -18,7 +18,7 @@ public class GradeDao extends AbstractMySQLDao implements IGradeDao<Grade> {
 	}
 
 	@Override
-	public Grade updateEntity(Grade entity) {
+	public Prerequisite updateEntity(Prerequisite entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
