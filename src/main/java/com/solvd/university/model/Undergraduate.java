@@ -1,19 +1,21 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Undergraduate {
 	private Long id;
-	private Long userId;
-	private Long courseId;
+	private List<User> users;
+	private List<Course> courses;
 
 	public Undergraduate() {
 
 	}
 
-	public Undergraduate(Long id, Long userId, Long courseId) {
+	public Undergraduate(Long id, List<User> users, List<Course> courses) {
 		super();
 		this.id = id;
-		this.userId = userId;
-		this.courseId = courseId;
+		this.users = users;
+		this.courses = courses;
 	}
 
 	public Long getId() {
@@ -24,20 +26,20 @@ public class Undergraduate {
 		this.id = id;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
-	public Long getCourseId() {
-		return courseId;
+	public List<Course> getCourses() {
+		return courses;
 	}
 
-	public void setCourseId(Long courseId) {
-		this.courseId = courseId;
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.util.List;
+
 import com.solvd.university.DAO.ITermDao;
 import com.solvd.university.model.Term;
 
@@ -27,6 +29,12 @@ public class TermDao extends AbstractMySQLDao implements ITermDao<Term> {
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Term>  getAllById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

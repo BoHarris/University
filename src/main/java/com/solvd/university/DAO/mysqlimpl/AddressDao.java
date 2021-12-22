@@ -1,5 +1,7 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.util.List;
+
 import com.solvd.university.DAO.IAddressDao;
 import com.solvd.university.model.Address;
 
@@ -27,6 +29,12 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Address> getAllById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

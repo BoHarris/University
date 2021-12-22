@@ -1,29 +1,64 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Course {
 	private Long id;
 	private String name;
 	private String creditHours;
-	private Long prerequisitId;
-	private Long departmentId;
 	private Long termId;
-	private Long courseMaterialId;
-	private Long instructorId;
+	private List<Prerequisite> prerequisits;
+	private List<Department> departments;
+	private List<CourseMaterial> courseMaterials;
+	private List<Instructor> instructors;
 
 	public Course() {
-		// TODO Auto-generated constructor stub
+
 	}
 
-	public Course(Long id, String name, String creditHours, Long prerequisitId, Long departmentId, Long termId,
-			Long courseMaterialId, Long instructorId) {
+	public List<Prerequisite> getPrerequisits() {
+		return prerequisits;
+	}
+
+	public void setPrerequisits(List<Prerequisite> prerequisits) {
+		this.prerequisits = prerequisits;
+	}
+
+	public List<Department> getDepartments() {
+		return departments;
+	}
+
+	public void setDepartments(List<Department> departments) {
+		this.departments = departments;
+	}
+
+	public List<CourseMaterial> getCourseMaterials() {
+		return courseMaterials;
+	}
+
+	public void setCourseMaterials(List<CourseMaterial> courseMaterials) {
+		this.courseMaterials = courseMaterials;
+	}
+
+	public List<Instructor> getInstructors() {
+		return instructors;
+	}
+
+	public void setInstructors(List<Instructor> instructors) {
+		this.instructors = instructors;
+	}
+
+	public Course(Long id, String name, String creditHours, List<Prerequisite> prerequisits,
+			List<Department> departments, Long termId, List<CourseMaterial> courseMaterials,
+			List<Instructor> instructors) {
 		this.id = id;
 		this.name = name;
 		this.creditHours = creditHours;
-		this.prerequisitId = prerequisitId;
-		this.departmentId = departmentId;
+		this.prerequisits = prerequisits;
+		this.departments = departments;
 		this.termId = termId;
-		this.courseMaterialId = courseMaterialId;
-		this.instructorId = instructorId;
+		this.courseMaterials = courseMaterials;
+		this.instructors = instructors;
 	}
 
 	public Long getId() {
@@ -50,44 +85,12 @@ public class Course {
 		this.creditHours = creditHours;
 	}
 
-	public Long getPrerequisitId() {
-		return prerequisitId;
-	}
-
-	public void setPrerequisitId(Long prerequisitId) {
-		this.prerequisitId = prerequisitId;
-	}
-
-	public Long getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(Long departmentId) {
-		this.departmentId = departmentId;
-	}
-
 	public Long getTermId() {
 		return termId;
 	}
 
 	public void setTermId(Long termId) {
 		this.termId = termId;
-	}
-
-	public Long getCourseMaterialId() {
-		return courseMaterialId;
-	}
-
-	public void setCourseMaterialId(Long courseMaterialId) {
-		this.courseMaterialId = courseMaterialId;
-	}
-
-	public Long getInstructorId() {
-		return instructorId;
-	}
-
-	public void setInstructorId(Long instructorId) {
-		this.instructorId = instructorId;
 	}
 
 }

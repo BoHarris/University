@@ -1,5 +1,7 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.util.List;
+
 import com.solvd.university.DAO.IPositionDao;
 import com.solvd.university.model.Position;
 
@@ -27,6 +29,12 @@ public class PositionDao extends AbstractMySQLDao implements IPositionDao<Positi
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Position>  getAllById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

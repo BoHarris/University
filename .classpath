@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/jarfiles/log4j/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/jarfiles/log4j/log4j-api-2.14.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/jarfiles/log4j/log4j-core-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/jarfiles/mysql connector 8.0.27/mysql-connector-java-8.0.27.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

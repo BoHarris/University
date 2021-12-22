@@ -1,5 +1,7 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.util.List;
+
 import com.solvd.university.DAO.IUndergraduateDao;
 import com.solvd.university.model.Undergraduate;
 
@@ -27,6 +29,12 @@ public class UndergraduateDao extends AbstractMySQLDao implements IUndergraduate
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Undergraduate> getAllById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.util.List;
+
 import com.solvd.university.DAO.ICityDao;
 import com.solvd.university.model.City;
 
@@ -27,6 +29,12 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<City> getAllById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

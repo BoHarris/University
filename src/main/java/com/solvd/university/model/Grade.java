@@ -1,19 +1,21 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Grade {
 	private Long id;
 	private Integer grade;
-	private Long undergraduate;
+	private List<Undergraduate> undergraduates;
 
 	public Grade() {
 
 	}
 
-	public Grade(Long id, Integer grade, Long undergraduate) {
+	public Grade(Long id, Integer grade, List<Undergraduate> undergraduates) {
 		super();
 		this.id = id;
 		this.grade = grade;
-		this.undergraduate = undergraduate;
+		this.setUndergraduates(undergraduates);
 	}
 
 	public Long getId() {
@@ -32,12 +34,12 @@ public class Grade {
 		this.grade = grade;
 	}
 
-	public Long getUndergraduate() {
-		return undergraduate;
+	public List<Undergraduate> getUndergraduates() {
+		return undergraduates;
 	}
 
-	public void setUndergraduate(Long undergraduate) {
-		this.undergraduate = undergraduate;
+	public void setUndergraduates(List<Undergraduate> undergraduates) {
+		this.undergraduates = undergraduates;
 	}
 
 }

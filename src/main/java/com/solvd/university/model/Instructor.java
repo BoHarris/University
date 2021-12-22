@@ -1,28 +1,62 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Instructor {
 	private Long id;
 	private String email;
 	private String phone_number;
-	private Long position_id;
-	private Long department_id;
-	private Long credentials_id;
-	private Long user_id;
+	private List<Position> positions;
+	private List<Department> departments;
+	private List<Credientals> credentials;
+	private List<User> users;
 
 	public Instructor() {
 
 	}
 
-	public Instructor(Long id, String email, String phone_number, Long position_id, Long department_id,
-			Long credentials_id, Long user_id) {
+	public Instructor(Long id, String email, String phone_number, List<Position> positions,
+			List<Department> departments, List<Credientals> credentials, List<User> users) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.phone_number = phone_number;
-		this.position_id = position_id;
-		this.department_id = department_id;
-		this.credentials_id = credentials_id;
-		this.user_id = user_id;
+		this.positions = positions;
+		this.departments = departments;
+		this.credentials = credentials;
+		this.users = users;
+	}
+
+	public List<Position> getPositions() {
+		return positions;
+	}
+
+	public void setPositions(List<Position> positions) {
+		this.positions = positions;
+	}
+
+	public List<Department> getDepartments() {
+		return departments;
+	}
+
+	public void setDepartments(List<Department> departments) {
+		this.departments = departments;
+	}
+
+	public List<Credientals> getCredentials() {
+		return credentials;
+	}
+
+	public void setCredentials(List<Credientals> credentials) {
+		this.credentials = credentials;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public Long getId() {
@@ -47,38 +81,6 @@ public class Instructor {
 
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
-	}
-
-	public Long getPosition_id() {
-		return position_id;
-	}
-
-	public void setPosition_id(Long position_id) {
-		this.position_id = position_id;
-	}
-
-	public Long getDepartment_id() {
-		return department_id;
-	}
-
-	public void setDepartment_id(Long department_id) {
-		this.department_id = department_id;
-	}
-
-	public Long getCredentials_id() {
-		return credentials_id;
-	}
-
-	public void setCredentials_id(Long credentials_id) {
-		this.credentials_id = credentials_id;
-	}
-
-	public Long getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
 	}
 
 }

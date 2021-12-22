@@ -1,5 +1,7 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.util.List;
+
 import com.solvd.university.DAO.ICredientalsDao;
 import com.solvd.university.model.Credientals;
 
@@ -27,6 +29,12 @@ public class CredientalsDao extends AbstractMySQLDao implements ICredientalsDao<
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Credientals>  getAllById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

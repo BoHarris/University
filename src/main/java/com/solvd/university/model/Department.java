@@ -1,19 +1,21 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Department {
 	private Long id;
 	private String name;
-	private Long universityId;
+	private List<University> universitys;
 
 	public Department() {
 
 	}
 
-	public Department(Long id, String name, Long universityId) {
+	public Department(Long id, String name, List<University> universitys) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.universityId = universityId;
+		this.universitys = universitys;
 	}
 
 	public Long getId() {
@@ -32,12 +34,12 @@ public class Department {
 		this.name = name;
 	}
 
-	public Long getUniversityId() {
-		return universityId;
+	public List<University> getUniversitys() {
+		return universitys;
 	}
 
-	public void setUniversityId(Long universityId) {
-		this.universityId = universityId;
+	public void setUniversitys(List<University> universitys) {
+		this.universitys = universitys;
 	}
 
 }

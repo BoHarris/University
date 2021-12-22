@@ -1,21 +1,23 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class University {
 	private Long id;
 	private String name;
 	private String phoneNumber;
-	private Long addressId;
+	private List<Address> addresses;
 
 	public University() {
 
 	}
 
-	public University(Long id, String name, String phoneNumber, Long addressId) {
+	public University(Long id, String name, String phoneNumber, List<Address> addresses) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
-		this.addressId = addressId;
+		this.setAddresses(addresses);
 	}
 
 	public Long getId() {
@@ -42,12 +44,12 @@ public class University {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Long getAddressId() {
-		return addressId;
+	public List<Address> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddressId(Long addressId) {
-		this.addressId = addressId;
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
 }

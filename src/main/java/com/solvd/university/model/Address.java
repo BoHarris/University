@@ -1,20 +1,22 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Address {
 	private Long id;
 	private Integer buildingNumber;
 	private String streetName;
-	private Long cityId;
+	private List<City> citys;
 
 	public Address() {
 
 	}
 
-	public Address(Long id, Integer buildingNumber, String streetName, Long cityId) {
+	public Address(Long id, Integer buildingNumber, String streetName, List<City> citys) {
 		this.id = id;
 		this.buildingNumber = buildingNumber;
 		this.streetName = streetName;
-		this.cityId = cityId;
+		this.citys = citys;
 	}
 
 	public Long getId() {
@@ -41,11 +43,12 @@ public class Address {
 		this.streetName = streetName;
 	}
 
-	public Long getCityId() {
-		return cityId;
+	public List<City> getCity() {
+		return citys;
 	}
 
-	public void setCityId(Long cityId) {
-		this.cityId = cityId;
+	public void setCity(List<City> citys) {
+		this.citys = citys;
 	}
+
 }
