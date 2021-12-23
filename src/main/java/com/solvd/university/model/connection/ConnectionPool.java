@@ -1,100 +1,93 @@
 package com.solvd.university.model.connection;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
+import java.io.FileInputStream;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.List;
+import java.sql.SQLException;
 import java.util.Properties;
-import java.util.concurrent.CopyOnWriteArrayList;
-
-import com.solvd.university.model.connection.CredentialValues;
-
-import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-public  class ConnectionPool {
-	
-	
-	
-private static final Logger log = LogManager.getLogger(ConnectionPool.class.getName());
-	
-	private static ConnectionPool pool;    // Singleton
-	private final Properties prop = new Properties();
-	private static final MysqlConnectionPoolDataSource ds = new MysqlConnectionPoolDataSource();
-	private List<Connection> connections = new CopyOnWriteArrayList<>();
 
-	public ConnectionPool() {}
+import com.mysql.jdbc.Driver;
 
-//Lazy Initialization
-	
-	public static ConnectionPool getPoolInstance() {
-		if (pool == null) {
+public class ConnectionPool {
+
+	private static final Logger log = LogManager.getLogger(ConnectionPool.class.getName());
+
+	private static ConnectionPool instance;
+	private static LinkedBlockingQueue<Connection> pool;
+	private static final int MAX_POOL_CAPACITY = 10;
+	private static int existingConnectionsCount = 0;
+	private static String url;
+	private static String user;
+	private static String password;
+
+	public ConnectionPool() {
+		if (pool.iterator() != null) {
+			pool.add((Connection) getInstance());
+		}
+	}
+
+	public static ConnectionPool getInstance() {
+		if (instance == null) {
 
 			synchronized (ConnectionPool.class) {
-				if (pool == null) {
-					pool = new ConnectionPool();
+				instance = new ConnectionPool();
+
+				try {
+					InputStream input = new FileInputStream("resources/db.properties");
+					Properties prop = new Properties();
+					prop.load(input);
+					url = prop.getProperty("url");
+					user = prop.getProperty("username");
+					password = prop.getProperty("password");
+				} catch (Exception e) {
+					log.error(e.getMessage());
 				}
 			}
+
 		}
-		return pool;
+		return instance;
 	}
-	
-	private void getPropValues(String file) throws IOException {
-        try {
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(file);
 
-            if (inputStream != null) {
-                prop.load(inputStream);
-            } else {
-                throw new FileNotFoundException(file + " not found");
-            }
-
-            ds.setURL(prop.getProperty("url"));
-            ds.setUser(prop.getProperty("user"));
-            ds.setPassword(prop.getProperty("password"));
-        } catch (Exception e) {
-            log.error("Exception :" + e);
-        }
-    }
-
-	public synchronized Connection getConnection() throws InterruptedException{
-		Connection connection = null;
-		if (isConnectionAailable()) {
+	public Connection getConnection() throws InterruptedException {
+		Connection c = pool.poll();
+		if (c == null && existingConnectionsCount < MAX_POOL_CAPACITY) {
 			try {
-				Class.forName("com.myswl.jdbc.Driver");
-				Connection con = DriverManager.getConnection(url, user, password);
-			} catch (Exception e) {
+				Driver driver = null;
+				try {
+					driver = (Driver) Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
+				} catch (InstantiationException e) {
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					e.printStackTrace();
+				} catch (NoSuchMethodException e) {
+					e.printStackTrace();
+				} catch (SecurityException e) {
+					e.printStackTrace();
+				}
+				DriverManager.registerDriver(driver);
+				existingConnectionsCount++;
+				return DriverManager.getConnection(url, user, password);
+			} catch (SQLException e) {
 				log.error(e.getMessage());
 			}
-			
-			
-			log.debug("pool size= " + connections.size());
-			connection = connections.get(0);
-			connections.remove(0);
-			log.debug("pool size after = " + connections.size());
 		}
 
-		return connection;
+		return pool.take();
 	}
 
-	public synchronized void releaseConnection(Connection connection) {
-		connections.add(connection);
+	public void releaseConnection(Connection con) {
+		pool.add(con);
 	}
-
-	private boolean isConnectionAailable() {
-		if (connections.isEmpty()) {
-			try {
-				log.debug("connection is empty");
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-				log.debug(e.getMessage());;
-			}
-			isConnectionAailable();
-		}
-		return true;
-	}
-}
-	
 }
