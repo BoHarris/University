@@ -27,9 +27,6 @@ public class ConnectionPool {
 	private static String password;
 
 	public ConnectionPool() {
-		if (pool.iterator() != null) {
-			pool.add((Connection) getInstance());
-		}
 	}
 
 	public static ConnectionPool getInstance() {
@@ -37,10 +34,14 @@ public class ConnectionPool {
 
 			synchronized (ConnectionPool.class) {
 				instance = new ConnectionPool();
+				pool = new LinkedBlockingQueue<>();
+				 log.info("Creating Connection Pool");
+
 
 				try {
 					InputStream input = new FileInputStream("resources/db.properties");
 					Properties prop = new Properties();
+					log.info("Retrieving creditntals.");
 					prop.load(input);
 					url = prop.getProperty("url");
 					user = prop.getProperty("username");
@@ -55,39 +56,30 @@ public class ConnectionPool {
 	}
 
 	public Connection getConnection() throws InterruptedException {
-		Connection c = pool.poll();
-		if (c == null && existingConnectionsCount < MAX_POOL_CAPACITY) {
+		if (existingConnectionsCount < MAX_POOL_CAPACITY) {
+			log.info("No connections pooled. Creating connection now.");
+
 			try {
-				Driver driver = null;
-				try {
-					driver = (Driver) Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance();
-				} catch (InstantiationException e) {
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-				} catch (InvocationTargetException e) {
-					e.printStackTrace();
-				} catch (NoSuchMethodException e) {
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					e.printStackTrace();
-				}
-				DriverManager.registerDriver(driver);
 				existingConnectionsCount++;
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				return DriverManager.getConnection(url, user, password);
-			} catch (SQLException e) {
+			} catch (Exception e) {
 				log.error(e.getMessage());
 			}
 		}
 
-		return pool.take();
+		log.info("Retrieving next available connection from pool...");
+		Connection con = pool.take();
+		log.info("Connection successfully retrieved from pool.");
+
+		return con;
 	}
 
 	public void releaseConnection(Connection con) {
-		pool.add(con);
+		if (pool.add(con) && pool.size() <= MAX_POOL_CAPACITY)
+			log.info("Connection successfully pooled.");
+		else
+			log.error("Connection pooling failed. An external connection may have been "
+					+ "-or is currently attempting to be- added to the pool.");
 	}
 }
