@@ -37,4 +37,10 @@ public class PositionDao extends AbstractMySQLDao implements IPositionDao<Positi
 		return null;
 	}
 
+	@Override
+	public List<Position> getListedPositionById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -32,7 +32,13 @@ public class CourseDao extends AbstractMySQLDao implements ICourseDao<Course> {
 	}
 
 	@Override
-	public List<Course> getCourseById(long id) {
+	public Course getCourseById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Course> getListedCourseById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

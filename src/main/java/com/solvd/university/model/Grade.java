@@ -38,8 +38,8 @@ public class Grade {
 		return undergraduates;
 	}
 
-	public void setUndergraduates(List<Undergraduate> undergraduates) {
-		this.undergraduates = undergraduates;
+	public void setUndergraduates(List<Undergraduate> undergraduate) {
+		this.undergraduates = undergraduate;
 	}
 
 }

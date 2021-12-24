@@ -1,7 +1,5 @@
 package com.solvd.university.service;
 
-import java.util.List;
-
 import com.solvd.university.DAO.IAddressDao;
 import com.solvd.university.DAO.IUniversityDao;
 import com.solvd.university.DAO.mysqlimpl.AddressDao;

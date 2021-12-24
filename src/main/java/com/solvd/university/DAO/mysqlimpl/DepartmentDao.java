@@ -32,7 +32,13 @@ public class DepartmentDao extends AbstractMySQLDao implements IDepartmentDao<De
 	}
 
 	@Override
-	public List<Department> getDepartmentById(long id) {
+	public Department getDepartmentById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Department> getListedDepartmentById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

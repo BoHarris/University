@@ -37,4 +37,10 @@ public class TermDao extends AbstractMySQLDao implements ITermDao<Term> {
 		return null;
 	}
 
+	@Override
+	public List<Term> getListedTermById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

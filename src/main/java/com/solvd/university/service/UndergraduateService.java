@@ -16,7 +16,7 @@ public class UndergraduateService implements IUndergraduateService {
 
 	@Override
 	public Undergraduate getUndergraduateById(long id) {
-		Undergraduate u = undergraduateDao.getUndergraduateById(id);
+		Undergraduate u = undergraduateDao.getListedUndergraduateById(id);
 		u.setUserId(userDao.getUserById(id));
 		return u;
 	}

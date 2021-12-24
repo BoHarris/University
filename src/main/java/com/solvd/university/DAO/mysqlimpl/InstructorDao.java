@@ -32,7 +32,13 @@ public class InstructorDao extends AbstractMySQLDao implements IInstructorDao<In
 	}
 
 	@Override
-	public List<Instructor> getInstructorById(long id) {
+	public Instructor getInstructorById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Instructor> getListedInstructorById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

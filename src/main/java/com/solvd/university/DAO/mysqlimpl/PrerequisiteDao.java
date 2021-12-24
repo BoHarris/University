@@ -37,4 +37,10 @@ public class PrerequisiteDao extends AbstractMySQLDao implements IPrerequisiteDa
 		return null;
 	}
 
+	@Override
+	public List<Prerequisite> getListedAddressById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

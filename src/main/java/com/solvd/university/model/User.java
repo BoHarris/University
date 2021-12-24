@@ -113,16 +113,26 @@ public class User {
 		this.loginId = loginId;
 	}
 
-	public void setAddressId(List addressById) {
-
+	public void setAddressId(List<Address> addressById) {
+		Address address = new Address();
+		addressById.add(address);
 	}
 
-	public void setLoginId(List loginById) {
-
+	public void setLoginId(List<Login> loginById) {
+		Login login = new Login();
+		loginById.add(login);
 	}
 
-	public void setLoginId(Login loginById) {
+	public Long setLoginId(Login loginById) { // Convert login to long and set to loginId
+		String stringToConvert = String.valueOf(loginById);
+		Long convertedLoginLong = Long.parseLong(stringToConvert);
+		return loginId = convertedLoginLong;
+	}
 
+	public Long setAddressId(Address addressById) { // Convert address to long and set to addressId
+		String stringToConvert = String.valueOf(addressById);
+		Long convertedAddressLong = Long.parseLong(stringToConvert);
+		return addressId = convertedAddressLong;
 	}
 
 }

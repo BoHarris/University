@@ -5,5 +5,6 @@ import java.util.List;
 import com.solvd.university.model.Department;
 
 public interface IDepartmentDao<T> extends IBaseDao<Department> {
-	List<T> getDepartmentById(long id);
+	Department getDepartmentById();
+	List<T> getListedDepartmentById(long id);
 }

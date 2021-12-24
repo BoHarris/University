@@ -32,7 +32,13 @@ public class CourseMaterialDao extends AbstractMySQLDao implements ICourseMateri
 	}
 
 	@Override
-	public List<CourseMaterial> getCourseMaterialById(long id) {
+	public CourseMaterial getCourseMaterialById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CourseMaterial> getListedCourseMaterialById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

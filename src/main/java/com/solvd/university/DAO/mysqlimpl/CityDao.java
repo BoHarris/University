@@ -32,7 +32,13 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 	}
 
 	@Override
-	public List<City> getCityById(long id) {
+	public City getCityById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<City> getListedCityById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

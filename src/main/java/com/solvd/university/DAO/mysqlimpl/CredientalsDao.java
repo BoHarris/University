@@ -32,7 +32,13 @@ public class CredientalsDao extends AbstractMySQLDao implements ICredientalsDao<
 	}
 
 	@Override
-	public List<Credientals> getCredientalsById(long id) {
+	public Credientals getCreditntalsById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Credientals> getListedCredientalsById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -32,7 +32,13 @@ public class UndergraduateDao extends AbstractMySQLDao implements IUndergraduate
 	}
 
 	@Override
-	public Undergraduate getUndergraduateById(long id) {
+	public Undergraduate getListedUndergraduateById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Undergraduate> getUndergraduateById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

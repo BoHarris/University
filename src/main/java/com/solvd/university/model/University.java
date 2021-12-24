@@ -6,6 +6,7 @@ public class University {
 	private Long id;
 	private String name;
 	private String phoneNumber;
+	private Address addressId;
 	private List<Address> addresses;
 
 	public University() {
@@ -48,8 +49,22 @@ public class University {
 		return addresses;
 	}
 
+	public Address getAddressId() {
+		return addressId;
+	}
+
+	public Address setAddressId(Address addressId) {
+		this.addressId = addressId;
+		return addressId;
+	}
+
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
+	}
+
+	public Address setAddresses(Address addressById) {
+		return addressId = addressById;
+
 	}
 
 }

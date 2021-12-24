@@ -39,4 +39,10 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		return null;
 	}
 
+	@Override
+	public List<User> getListedUserById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

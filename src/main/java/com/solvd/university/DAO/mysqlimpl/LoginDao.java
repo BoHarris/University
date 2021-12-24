@@ -37,4 +37,10 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 		return null;
 	}
 
+	@Override
+	public List<Login> getListedLoginById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

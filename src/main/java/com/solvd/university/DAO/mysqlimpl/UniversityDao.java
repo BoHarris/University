@@ -37,4 +37,10 @@ public class UniversityDao extends AbstractMySQLDao implements IUniversityDao<Un
 		return null;
 	}
 
+	@Override
+	public List<University> getListedUniversityById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -32,7 +32,13 @@ public class GradeDao extends AbstractMySQLDao implements IGradeDao<Grade> {
 	}
 
 	@Override
-	public List<Grade> getGradeById(long id) {
+	public Grade getGradeById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Grade> getListedGradeById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

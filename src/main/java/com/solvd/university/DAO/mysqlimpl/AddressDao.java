@@ -10,13 +10,13 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 	@Override
 	public void createEntity(Address entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,15 +28,19 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Address> getAddressById(long id) {
+	public Address getAddressById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
+	@Override
+	public List<Address> getListedAddressById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
