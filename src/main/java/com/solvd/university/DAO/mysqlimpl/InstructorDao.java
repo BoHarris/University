@@ -10,13 +10,13 @@ public class InstructorDao extends AbstractMySQLDao implements IInstructorDao<In
 	@Override
 	public void createEntity(Instructor entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class InstructorDao extends AbstractMySQLDao implements IInstructorDao<In
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Instructor>  getAllById(Long id) {
+	public List<Instructor> getInstructorById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

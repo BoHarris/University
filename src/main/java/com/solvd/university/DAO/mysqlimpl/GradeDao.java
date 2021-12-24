@@ -10,13 +10,13 @@ public class GradeDao extends AbstractMySQLDao implements IGradeDao<Grade> {
 	@Override
 	public void createEntity(Grade entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class GradeDao extends AbstractMySQLDao implements IGradeDao<Grade> {
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Grade>  getAllById(Long id) {
+	public List<Grade> getGradeById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

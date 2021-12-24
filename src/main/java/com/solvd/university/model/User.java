@@ -1,5 +1,7 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class User {
 	private Long id;
 	private String email;
@@ -109,6 +111,18 @@ public class User {
 
 	public void setLoginId(Long loginId) {
 		this.loginId = loginId;
+	}
+
+	public void setAddressId(List addressById) {
+
+	}
+
+	public void setLoginId(List loginById) {
+
+	}
+
+	public void setLoginId(Login loginById) {
+
 	}
 
 }

@@ -5,18 +5,18 @@ import java.util.List;
 import com.solvd.university.DAO.IUndergraduateDao;
 import com.solvd.university.model.Undergraduate;
 
-public class UndergraduateDao extends AbstractMySQLDao implements IUndergraduateDao<Undergraduate>{
+public class UndergraduateDao extends AbstractMySQLDao implements IUndergraduateDao<Undergraduate> {
 
 	@Override
 	public void createEntity(Undergraduate entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class UndergraduateDao extends AbstractMySQLDao implements IUndergraduate
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Undergraduate> getAllById(Long id) {
+	public Undergraduate getUndergraduateById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

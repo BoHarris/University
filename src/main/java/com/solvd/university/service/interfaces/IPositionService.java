@@ -1,5 +1,8 @@
 package com.solvd.university.service.interfaces;
 
+import com.solvd.university.model.Position;
+
 public interface IPositionService {
-	void getPositionById();
+
+	Position getPositionById(long id);
 }

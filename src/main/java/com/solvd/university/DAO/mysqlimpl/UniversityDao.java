@@ -10,13 +10,13 @@ public class UniversityDao extends AbstractMySQLDao implements IUniversityDao<Un
 	@Override
 	public void createEntity(University entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class UniversityDao extends AbstractMySQLDao implements IUniversityDao<Un
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<University>  getAllById(Long id) {
+	public University getUniversityById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

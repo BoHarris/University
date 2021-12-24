@@ -10,13 +10,13 @@ public class TermDao extends AbstractMySQLDao implements ITermDao<Term> {
 	@Override
 	public void createEntity(Term entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class TermDao extends AbstractMySQLDao implements ITermDao<Term> {
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Term>  getAllById(Long id) {
+	public Term getTermById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

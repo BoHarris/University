@@ -4,8 +4,10 @@ import java.util.List;
 
 public class Undergraduate {
 	private Long id;
+	private long userId;
 	private List<User> users;
 	private List<Course> courses;
+	private User userById;
 
 	public Undergraduate() {
 
@@ -26,6 +28,14 @@ public class Undergraduate {
 		this.id = id;
 	}
 
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
 	public List<User> getUsers() {
 		return users;
 	}
@@ -40,6 +50,11 @@ public class Undergraduate {
 
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
+	}
+
+	public void setUserId(User userById) {
+		this.userById = userById;
+
 	}
 
 }

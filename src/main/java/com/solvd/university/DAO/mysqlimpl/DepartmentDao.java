@@ -10,13 +10,13 @@ public class DepartmentDao extends AbstractMySQLDao implements IDepartmentDao<De
 	@Override
 	public void createEntity(Department entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class DepartmentDao extends AbstractMySQLDao implements IDepartmentDao<De
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Department>  getAllById(Long id) {
+	public List<Department> getDepartmentById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

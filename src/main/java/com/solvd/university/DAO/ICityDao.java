@@ -5,5 +5,5 @@ import java.util.List;
 import com.solvd.university.model.City;
 
 public interface ICityDao<T> extends IBaseDao<City> {
-	List<T> getAllById(Long id);
+	List<T> getCityById(long id);
 }

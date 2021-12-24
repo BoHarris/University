@@ -1,5 +1,8 @@
 package com.solvd.university.service.interfaces;
 
+import com.solvd.university.model.Login;
+
 public interface ILoginService {
-	void getLoginById();
+
+	Login getLoginById(long id);
 }

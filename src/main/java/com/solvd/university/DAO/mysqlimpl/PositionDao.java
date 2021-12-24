@@ -10,13 +10,13 @@ public class PositionDao extends AbstractMySQLDao implements IPositionDao<Positi
 	@Override
 	public void createEntity(Position entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class PositionDao extends AbstractMySQLDao implements IPositionDao<Positi
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Position>  getAllById(Long id) {
+	public Position getPositionById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,5 +1,7 @@
 package com.solvd.university.service.interfaces;
 
-public interface IUndergraduateService  {
-	void getUndergraduateById();
+import com.solvd.university.model.Undergraduate;
+
+public interface IUndergraduateService {
+	Undergraduate getUndergraduateById(long id);
 }

@@ -83,4 +83,12 @@ public class Instructor {
 		this.phone_number = phone_number;
 	}
 
+	public void setPositions(Position positionById) {
+
+	}
+
+	public void setUsers(User userById) {
+
+	}
+
 }

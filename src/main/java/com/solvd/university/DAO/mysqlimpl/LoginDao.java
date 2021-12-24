@@ -10,13 +10,13 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 	@Override
 	public void createEntity(Login entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Login>  getAllById(Long id) {
+	public Login getLoginById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -5,18 +5,18 @@ import java.util.List;
 import com.solvd.university.DAO.IPrerequisiteDao;
 import com.solvd.university.model.Prerequisite;
 
-public class PrerequisiteDao extends AbstractMySQLDao implements IPrerequisiteDao<Prerequisite>{
+public class PrerequisiteDao extends AbstractMySQLDao implements IPrerequisiteDao<Prerequisite> {
 
 	@Override
 	public void createEntity(Prerequisite entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class PrerequisiteDao extends AbstractMySQLDao implements IPrerequisiteDa
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Prerequisite>  getAllById(Long id) {
+	public Prerequisite getPrerequisiteById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

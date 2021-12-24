@@ -32,9 +32,11 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 	}
 
 	@Override
-	public List<Address> getAllById(Long id) {
+	public List<Address> getAddressById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

@@ -10,13 +10,13 @@ public class CredientalsDao extends AbstractMySQLDao implements ICredientalsDao<
 	@Override
 	public void createEntity(Credientals entity) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void readEntity(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -28,11 +28,11 @@ public class CredientalsDao extends AbstractMySQLDao implements ICredientalsDao<
 	@Override
 	public void deleteEntinty() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Credientals>  getAllById(Long id) {
+	public List<Credientals> getCredientalsById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
