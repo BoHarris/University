@@ -57,7 +57,7 @@ public class ConnectionPool {
 
 	public Connection getConnection() throws InterruptedException {
 		if (existingConnectionsCount < MAX_POOL_CAPACITY) {
-			log.info("No connections pooled. Creating connection now.");
+			log.info("No connections pooled. Creating connection.");
 
 			try {
 				existingConnectionsCount++;
@@ -68,7 +68,7 @@ public class ConnectionPool {
 			}
 		}
 
-		log.info("Retrieving next available connection from pool...");
+		log.info("Retrieving  connection from pool.");
 		Connection con = pool.take();
 		log.info("Connection successfully retrieved from pool.");
 
