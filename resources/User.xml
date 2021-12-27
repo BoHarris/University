@@ -24,7 +24,7 @@
 	<work_phone>
 		333-333-3333
 	</work_phone>
-	<address>
+	<Address>
 		<id>
 			1
 		</id>
@@ -34,17 +34,19 @@
 		<streenName>
 			Main Street
 		</streenName>
-		<city>
+		<City>
 			<id>
 				1
 			</id>
 			<name>
-				MakenBelieve
+				City Name
 			</name>
-		</city>
-	</address>
-	;
-	<login>
+			<zipcode>
+				00000
+			</zipcode>
+		</City>
+	</Address>
+	<Login>
 		<id>
 			1
 		</id>
@@ -54,8 +56,6 @@
 		<password>
 			htims.bob
 		</password>
-	</login>
-
-
+	</Login>
 </User>
 

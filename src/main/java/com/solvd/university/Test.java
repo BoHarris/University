@@ -2,6 +2,7 @@ package com.solvd.university;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.xml.stream.FactoryConfigurationError;
@@ -18,11 +19,12 @@ import org.apache.logging.log4j.Logger;
 
 public class Test {
 	private static final Logger log = LogManager.getLogger(Test.class.getName());
+	private static final String FILE_NAME = "resources/User.xml";
 
 	public static void main(String[] args) throws InterruptedException {
 		try {
 
-			log.debug(transformXML(4, (new StAXHandler()).processXMLFile(new File("resources/User.xml")).toString()));
+			log.debug(transformXML(4, (new StAXHandler()).processXMLFile(new File(FILE_NAME)).toString()));
 		} catch (FileNotFoundException e) {
 			log.error("FileNotFoundException" + e.getMessage());
 		} catch (XMLStreamException e) {
@@ -40,7 +42,7 @@ public class Test {
 		Transformer transformer = transformerFactory.newTransformer();
 		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 		StreamResult streamResult = new StreamResult(new StringWriter());
-		transformer.transform(new StreamSource(rawXML), streamResult);
+		transformer.transform(new StreamSource(new StringReader(rawXML)), streamResult);
 		return streamResult.getWriter().toString();
 	}
 }
