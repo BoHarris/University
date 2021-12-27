@@ -1,0 +1,61 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<User>
+	<id>
+		1
+	</id>
+	<email>
+		bob.smith@Email.Com
+	</email>
+	<first_name>
+		Bob
+	</first_name>
+	<middle_name>
+		Fred
+	</middle_name>
+	<last_name>
+		Smith
+	</last_name>
+	<home_phone>
+		555-555-5555
+	</home_phone>
+	<cell_phone>
+		444-444-4444
+	</cell_phone>
+	<work_phone>
+		333-333-3333
+	</work_phone>
+	<address>
+		<id>
+			1
+		</id>
+		<buildingNumber>
+			1
+		</buildingNumber>
+		<streenName>
+			Main Street
+		</streenName>
+		<city>
+			<id>
+				1
+			</id>
+			<name>
+				MakenBelieve
+			</name>
+		</city>
+	</address>
+	;
+	<login>
+		<id>
+			1
+		</id>
+		<name>
+			Bob.Smith
+		</name>
+		<password>
+			htims.bob
+		</password>
+	</login>
+
+
+</User>
+
