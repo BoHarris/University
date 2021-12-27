@@ -1,14 +1,16 @@
 package com.solvd.university.model;
 
+import com.solvd.university.enums.CREDIENTALS;
+
 public class Credientals {
 	private Long id;
-	private String credientals;
+	private CREDIENTALS credientals;
 
 	public Credientals() {
 
 	}
 
-	public Credientals(Long id, String credientals) {
+	public Credientals(Long id, CREDIENTALS credientals) {
 		super();
 		this.id = id;
 		this.credientals = credientals;
@@ -22,11 +24,11 @@ public class Credientals {
 		this.id = id;
 	}
 
-	public String getCredientals() {
+	public CREDIENTALS getCredientals() {
 		return credientals;
 	}
 
-	public void setCredientals(String credientals) {
+	public void setCredientals(CREDIENTALS credientals) {
 		this.credientals = credientals;
 	}
 

@@ -1,5 +1,8 @@
 package com.solvd.university.service.interfaces;
 
-public interface IAddressService{
-	void getAddressById();
+import com.solvd.university.model.address.Address;
+
+public interface IAddressService {
+
+	Address getAddressById(long id);
 }

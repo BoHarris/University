@@ -3,7 +3,7 @@ package com.solvd.university.DAO.mysqlimpl;
 import java.util.List;
 
 import com.solvd.university.DAO.ICityDao;
-import com.solvd.university.model.City;
+import com.solvd.university.model.address.City;
 
 public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 

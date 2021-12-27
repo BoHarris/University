@@ -4,8 +4,8 @@ import com.solvd.university.DAO.IAddressDao;
 import com.solvd.university.DAO.IUniversityDao;
 import com.solvd.university.DAO.mysqlimpl.AddressDao;
 import com.solvd.university.DAO.mysqlimpl.UniversityDao;
-import com.solvd.university.model.Address;
 import com.solvd.university.model.University;
+import com.solvd.university.model.address.Address;
 import com.solvd.university.service.interfaces.IUniversityService;
 
 public class UniversityService implements IUniversityService {

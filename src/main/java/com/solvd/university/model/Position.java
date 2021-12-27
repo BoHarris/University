@@ -1,14 +1,16 @@
 package com.solvd.university.model;
 
+import com.solvd.university.enums.POSITION;
+
 public class Position {
 	private Long id;
-	private String name;
+	private POSITION name;
 
 	public Position() {
 
 	}
 
-	public Position(Long id, String name) {
+	public Position(Long id, POSITION name) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,11 +24,11 @@ public class Position {
 		this.id = id;
 	}
 
-	public String getName() {
+	public POSITION getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(POSITION name) {
 		this.name = name;
 	}
 

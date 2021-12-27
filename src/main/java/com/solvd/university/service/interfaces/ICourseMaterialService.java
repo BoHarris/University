@@ -1,5 +1,8 @@
 package com.solvd.university.service.interfaces;
 
+import com.solvd.university.model.CourseMaterial;
+
 public interface ICourseMaterialService {
-	void getCourseMaterialById();
+
+	CourseMaterial getCourseMaterialById(long id);
 }

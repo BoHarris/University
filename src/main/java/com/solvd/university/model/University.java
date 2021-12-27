@@ -2,6 +2,8 @@ package com.solvd.university.model;
 
 import java.util.List;
 
+import com.solvd.university.model.address.Address;
+
 public class University {
 	private Long id;
 	private String name;

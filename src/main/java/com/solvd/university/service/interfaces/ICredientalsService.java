@@ -1,5 +1,8 @@
 package com.solvd.university.service.interfaces;
 
+import com.solvd.university.model.Credientals;
+
 public interface ICredientalsService {
-	void getCredientalsById();
+
+	Credientals getCredientalsById(long id);
 }

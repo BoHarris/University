@@ -24,8 +24,8 @@ public class InstructorService implements IInstructorService {
 	public Instructor getInstructorById(long id) {
 		Instructor i = instructorDao.getInstructorById(id);
 		i.setPositions(positionDao.getPositionById(id));
-		i.setDepartments(departmentDao.getDepartmentById(id));
-		i.setCredentials(credientalsDao.getCredientalsById(id));
+		i.setDepartments(departmentDao.getListedDepartmentById(id));
+		i.setCredentials(credientalsDao.getListedCredientalsById(id));
 		i.setUsers(userDao.getUserById(id));
 
 		return i;

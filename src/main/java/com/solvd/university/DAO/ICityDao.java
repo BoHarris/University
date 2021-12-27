@@ -2,7 +2,7 @@ package com.solvd.university.DAO;
 
 import java.util.List;
 
-import com.solvd.university.model.City;
+import com.solvd.university.model.address.City;
 
 public interface ICityDao<T> extends IBaseDao<City> {
 	City getCityById(long id);
