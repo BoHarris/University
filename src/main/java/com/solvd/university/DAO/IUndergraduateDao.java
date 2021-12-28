@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.solvd.university.model.Undergraduate;
 
-public interface IUndergraduateDao<T> extends IBaseDao<Undergraduate> {
-	Undergraduate getListedUndergraduateById(long id);
+public interface IUndergraduateDao<T> extends IBaseDao<T> {
 
 	List<T> getUndergraduateById(long id);
 }

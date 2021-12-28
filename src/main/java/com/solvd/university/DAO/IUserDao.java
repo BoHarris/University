@@ -1,11 +1,12 @@
 package com.solvd.university.DAO;
 
+
+
 import java.util.List;
 
 import com.solvd.university.model.User;
 
-public interface IUserDao<T> extends IBaseDao<User> {
+public interface IUserDao<T> extends IBaseDao<T> {
 
-	User getUserById(long id);
-	List<T> getListedUserById(long id);
+	List<T> getUserById(long id);
 }

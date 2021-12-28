@@ -1,13 +1,14 @@
 package com.solvd.university.model;
 
+import java.sql.Date;
 import java.util.List;
 
 public class Undergraduate {
 	private Long id;
 	private long userId;
+	private Date dateEnrolled;
 	private List<User> users;
 	private List<Course> courses;
-	private User userById;
 
 	public Undergraduate() {
 
@@ -52,9 +53,13 @@ public class Undergraduate {
 		this.courses = courses;
 	}
 
-	public void setUserId(User userById) {
-		this.userById = userById;
-
+	public Date getDateEnrolled() {
+		return dateEnrolled;
 	}
+
+	public void setDateEnrolled(Date dateEnrolled) {
+		this.dateEnrolled = dateEnrolled;
+	}
+
 
 }

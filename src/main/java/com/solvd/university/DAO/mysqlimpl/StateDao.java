@@ -3,41 +3,39 @@ package com.solvd.university.DAO.mysqlimpl;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.solvd.university.DAO.IAddressDao;
-import com.solvd.university.model.address.Address;
+import com.solvd.university.DAO.IStateDao;
+import com.solvd.university.model.address.State;
 
-public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address> {
+public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 
 	@Override
-	public void createEntity(Address entity) throws SQLException {
+	public void createEntity(State entity) throws SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Address readEntity(long id) throws SQLException {
+	public State readEntity(long id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void updateEntity(Address entity) throws SQLException {
+	public void updateEntity(State entity) throws SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deleteEntinty() throws SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public List<Address> getAddressById(long id) {
+	public List<State> getStateById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 }

@@ -1,61 +1,50 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<User>
-	<id>
-		1
-	</id>
-	<email>
-		bob.smith@Email.Com
-	</email>
-	<first_name>
-		Bob
-	</first_name>
-	<middle_name>
-		Fred
-	</middle_name>
-	<last_name>
-		Smith
-	</last_name>
-	<home_phone>
-		555-555-5555
-	</home_phone>
-	<cell_phone>
-		444-444-4444
-	</cell_phone>
-	<work_phone>
-		333-333-3333
-	</work_phone>
-	<Address>
-		<id>
-			1
-		</id>
-		<buildingNumber>
-			1
-		</buildingNumber>
-		<streenName>
-			Main Street
-		</streenName>
-		<City>
-			<id>
+<Users>
+	<User id="1">
+		<email>
+			bob.smith@Email.Com
+		</email>
+		<first_name>
+			Bob
+		</first_name>
+		<middle_name>
+			Fred
+		</middle_name>
+		<last_name>
+			Smith
+		</last_name>
+		<home_phone>
+			555-555-5555
+		</home_phone>
+		<cell_phone>
+			444-444-4444
+		</cell_phone>
+		<work_phone>
+			333-333-3333
+		</work_phone>
+		<Address id="1">
+			<buildingNumber>
 				1
-			</id>
+			</buildingNumber>
+			<streenName>
+				Main Street
+			</streenName>
+			<City id="1">
+				<name>
+					City Name
+				</name>
+				<zipcode>
+					00000
+				</zipcode>
+			</City>
+		</Address>
+		<Login id="1">
 			<name>
-				City Name
+				Bob.Smith
 			</name>
-			<zipcode>
-				00000
-			</zipcode>
-		</City>
-	</Address>
-	<Login>
-		<id>
-			1
-		</id>
-		<name>
-			Bob.Smith
-		</name>
-		<password>
-			htims.bob
-		</password>
-	</Login>
-</User>
-
+			<password>
+				htims.bob
+			</password>
+		</Login>
+	</User>
+</Users>

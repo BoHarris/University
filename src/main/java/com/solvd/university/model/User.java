@@ -1,5 +1,6 @@
 package com.solvd.university.model;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.solvd.university.model.address.Address;
@@ -10,18 +11,19 @@ public class User {
 	private String first_name;
 	private String middle_name;
 	private String last_name;
+	private Date dateOfBirth;
 	private String home_phone;
 	private String cell_phone;
 	private String work_phone;
-	private Long addressId;
-	private Long loginId;
+	private List<Address> addresses;
+	private List<Login> logins;
 
 	public User() {
 
 	}
 
 	public User(Long id, String email, String first_name, String middle_name, String last_name, String home_phone,
-			String cell_phone, String work_phone, Long addressId, Long loginId) {
+			String cell_phone, String work_phone, List<Address> addresses, List<Login> logins) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -31,8 +33,8 @@ public class User {
 		this.home_phone = home_phone;
 		this.cell_phone = cell_phone;
 		this.work_phone = work_phone;
-		this.addressId = addressId;
-		this.loginId = loginId;
+		this.addresses = addresses;
+		this.logins = logins;
 	}
 
 	public Long getId() {
@@ -99,42 +101,28 @@ public class User {
 		this.work_phone = work_phone;
 	}
 
-	public Long getAddressId() {
-		return addressId;
+	public List<Address> getAddressId() {
+		return addresses;
 	}
 
-	public void setAddressId(Long addressId) {
-		this.addressId = addressId;
+	public void setAddressId(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 
-	public Long getLoginId() {
-		return loginId;
+	public List<Login> getLoginId() {
+		return logins;
 	}
 
-	public void setLoginId(Long loginId) {
-		this.loginId = loginId;
+	public void setLoginId(List<Login> logins) {
+		this.logins = logins;
 	}
 
-	public void setAddressId(List<Address> addressById) {
-		Address address = new Address();
-		addressById.add(address);
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setLoginId(List<Login> loginById) {
-		Login login = new Login();
-		loginById.add(login);
-	}
-
-	public Long setLoginId(Login loginById) { // Convert login to long and set to loginId
-		String stringToConvert = String.valueOf(loginById);
-		Long convertedLoginLong = Long.parseLong(stringToConvert);
-		return loginId = convertedLoginLong;
-	}
-
-	public Long setAddressId(Address addressById) { // Convert address to long and set to addressId
-		String stringToConvert = String.valueOf(addressById);
-		Long convertedAddressLong = Long.parseLong(stringToConvert);
-		return addressId = convertedAddressLong;
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 }

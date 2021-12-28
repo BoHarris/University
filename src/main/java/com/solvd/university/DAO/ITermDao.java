@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.solvd.university.model.Term;
 
-public interface ITermDao<T> extends IBaseDao<Term> {
-	Term getTermById(long id);
+public interface ITermDao<T> extends IBaseDao<T> {
 
-	List<T> getListedTermById(long id);
+	List<T> getTermById(long id);
 }

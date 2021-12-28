@@ -1,11 +1,13 @@
 package com.solvd.university.model;
 
+import java.sql.Date;
 import java.util.List;
 
 public class Instructor {
 	private Long id;
 	private String email;
 	private String phone_number;
+	private Date dateOfHire;
 	private List<Position> positions;
 	private List<Department> departments;
 	private List<Credientals> credentials;
@@ -89,6 +91,14 @@ public class Instructor {
 
 	public void setUsers(User userById) {
 
+	}
+
+	public Date getDateOfHire() {
+		return dateOfHire;
+	}
+
+	public void setDate_Hire(Date dateOfHire) {
+		this.dateOfHire = dateOfHire;
 	}
 
 }

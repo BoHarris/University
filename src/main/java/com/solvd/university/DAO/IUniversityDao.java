@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.solvd.university.model.University;
 
-public interface IUniversityDao<T> extends IBaseDao<University> {
-	University getUniversityById(long id);
-	List<T> getListedUniversityById(long id);
+public interface IUniversityDao<T> extends IBaseDao<T> {
+	List<T> getUniversityById(long id);
 }

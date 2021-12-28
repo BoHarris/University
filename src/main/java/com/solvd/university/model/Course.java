@@ -6,7 +6,7 @@ public class Course {
 	private Long id;
 	private String name;
 	private String creditHours;
-	private Long termId;
+	private List<Term> terms;
 	private List<Prerequisite> prerequisits;
 	private List<Department> departments;
 	private List<CourseMaterial> courseMaterials;
@@ -49,14 +49,14 @@ public class Course {
 	}
 
 	public Course(Long id, String name, String creditHours, List<Prerequisite> prerequisits,
-			List<Department> departments, Long termId, List<CourseMaterial> courseMaterials,
+			List<Department> departments, List<Term> terms, List<CourseMaterial> courseMaterials,
 			List<Instructor> instructors) {
 		this.id = id;
 		this.name = name;
 		this.creditHours = creditHours;
 		this.prerequisits = prerequisits;
 		this.departments = departments;
-		this.termId = termId;
+		this.terms = terms;
 		this.courseMaterials = courseMaterials;
 		this.instructors = instructors;
 	}
@@ -85,12 +85,12 @@ public class Course {
 		this.creditHours = creditHours;
 	}
 
-	public Long getTermId() {
-		return termId;
+	public List<Term> getTerms() {
+		return terms;
 	}
 
-	public void setTermId(Long termId) {
-		this.termId = termId;
+	public void setTermId(List<Term> terms) {
+		this.terms = terms;
 	}
 
 }

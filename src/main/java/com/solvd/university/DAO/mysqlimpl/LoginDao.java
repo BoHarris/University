@@ -1,5 +1,6 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.solvd.university.DAO.ILoginDao;
@@ -8,37 +9,31 @@ import com.solvd.university.model.Login;
 public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 
 	@Override
-	public void createEntity(Login entity) {
+	public void createEntity(Login entity) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void readEntity(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Login updateEntity(Login entity) {
+	public Login readEntity(long id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteEntinty() {
+	public void updateEntity(Login entity) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public Login getLoginById(long id) {
+	public void deleteEntinty() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public List<Login> getListedLoginById(long id) {
+	public List<Login> getLoginById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

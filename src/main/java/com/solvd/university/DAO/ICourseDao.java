@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.solvd.university.model.Course;
 
-public interface ICourseDao<T> extends IBaseDao<Course> {
-	Course getCourseById(long id);
+public interface ICourseDao<T> extends IBaseDao<T> {
 
-	List<T> getListedCourseById(long id);
+
+	List<T> getCourseById(long id);
 }

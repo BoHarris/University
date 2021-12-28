@@ -1,5 +1,6 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.solvd.university.DAO.ITermDao;
@@ -8,37 +9,31 @@ import com.solvd.university.model.Term;
 public class TermDao extends AbstractMySQLDao implements ITermDao<Term> {
 
 	@Override
-	public void createEntity(Term entity) {
+	public void createEntity(Term entity) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void readEntity(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Term updateEntity(Term entity) {
+	public Term readEntity(long id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteEntinty() {
+	public void updateEntity(Term entity) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public Term getTermById(long id) {
+	public void deleteEntinty() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public List<Term> getListedTermById(long id) {
+	public List<Term> getTermById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

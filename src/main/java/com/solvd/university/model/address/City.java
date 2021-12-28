@@ -4,7 +4,7 @@ public class City {
 	private Long id;
 	private String name;
 	private String zipCode;
-
+	
 	public City() {
 
 	}

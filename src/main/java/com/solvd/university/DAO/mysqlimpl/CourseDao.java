@@ -1,5 +1,6 @@
 package com.solvd.university.DAO.mysqlimpl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.solvd.university.DAO.ICourseDao;
@@ -8,39 +9,35 @@ import com.solvd.university.model.Course;
 public class CourseDao extends AbstractMySQLDao implements ICourseDao<Course> {
 
 	@Override
-	public void createEntity(Course entity) {
+	public void createEntity(Course entity) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void readEntity(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Course updateEntity(Course entity) {
+	public Course readEntity(long id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void deleteEntinty() {
+	public void updateEntity(Course entity) throws SQLException {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public Course getCourseById(long id) {
+	public void deleteEntinty() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Course> getCourseById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public List<Course> getListedCourseById(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

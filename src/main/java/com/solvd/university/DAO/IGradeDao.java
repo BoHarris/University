@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.solvd.university.model.Grade;
 
-public interface IGradeDao<T> extends IBaseDao<Grade> {
+public interface IGradeDao<T> extends IBaseDao<T> {
 
-	Grade getGradeById(long id);
-	List<T> getListedGradeById(long id);
+	List<T> getGradeById(long id);
 }
