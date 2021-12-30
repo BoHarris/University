@@ -27,7 +27,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 	}
 
 	@Override
-	public void deleteEntinty() throws SQLException {
+	public void deleteEntinty(long id) throws SQLException {
 		// TODO Auto-generated method stub
 
 	}

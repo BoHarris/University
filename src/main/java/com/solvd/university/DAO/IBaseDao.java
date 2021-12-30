@@ -9,5 +9,5 @@ public interface IBaseDao<T> {
 
 	void updateEntity(T entity) throws SQLException;
 
-	void deleteEntinty() throws SQLException;
+	void deleteEntinty(long id) throws SQLException;
 }

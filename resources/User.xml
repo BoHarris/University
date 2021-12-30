@@ -13,6 +13,9 @@
 		<last_name>
 			Smith
 		</last_name>
+		<date_of_birth>
+			11/12/1975
+		</date_of_birth>
 		<home_phone>
 			555-555-5555
 		</home_phone>
@@ -22,29 +25,29 @@
 		<work_phone>
 			333-333-3333
 		</work_phone>
-		<Address id="1">
-			<buildingNumber>
-				1
-			</buildingNumber>
-			<streenName>
-				Main Street
-			</streenName>
-			<City id="1">
-				<name>
-					City Name
-				</name>
-				<zipcode>
-					00000
-				</zipcode>
-			</City>
-		</Address>
-		<Login id="1">
+	<Address id="1">
+		<buildingNumber>
+			1
+		</buildingNumber>
+		<streenName>
+			Main Street
+		</streenName>
+		<City id="1">
 			<name>
-				Bob.Smith
+				City Name
 			</name>
-			<password>
-				htims.bob
-			</password>
-		</Login>
+			<zipcode>
+				00000
+			</zipcode>
+		</City>
+	</Address>
+	<Login id="1">
+		<name>
+			Bob.Smith
+		</name>
+		<password>
+			htims.bob
+		</password>
+	</Login>
 	</User>
 </Users>

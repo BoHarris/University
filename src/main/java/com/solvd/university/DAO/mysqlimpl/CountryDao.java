@@ -26,7 +26,7 @@ public class CountryDao<T> extends AbstractMySQLDao implements ICountryDao<T> {
 	}
 
 	@Override
-	public void deleteEntinty() throws SQLException {
+	public void deleteEntinty(long id) throws SQLException {
 		// TODO Auto-generated method stub
 
 	}

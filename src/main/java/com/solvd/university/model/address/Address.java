@@ -6,16 +6,18 @@ public class Address {
 	private Long id;
 	private Integer buildingNumber;
 	private String streetName;
+	private long cityId;
 	private List<City> citys;
 
 	public Address() {
 
 	}
 
-	public Address(Long id, Integer buildingNumber, String streetName, List<City> citys) {
+	public Address(Long id, Integer buildingNumber, String streetName, long cityId, List<City> citys) {
 		this.id = id;
 		this.buildingNumber = buildingNumber;
 		this.streetName = streetName;
+		this.cityId = cityId;
 		this.citys = citys;
 	}
 
@@ -41,6 +43,14 @@ public class Address {
 
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
+	}
+
+	public long getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(long cityId) {
+		this.cityId = cityId;
 	}
 
 	public List<City> getCity() {

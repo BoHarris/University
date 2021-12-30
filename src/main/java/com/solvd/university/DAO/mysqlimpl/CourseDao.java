@@ -27,7 +27,7 @@ public class CourseDao extends AbstractMySQLDao implements ICourseDao<Course> {
 	}
 
 	@Override
-	public void deleteEntinty() throws SQLException {
+	public void deleteEntinty(long id) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}

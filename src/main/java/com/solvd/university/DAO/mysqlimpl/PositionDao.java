@@ -27,7 +27,7 @@ public class PositionDao extends AbstractMySQLDao implements IPositionDao<Positi
 	}
 
 	@Override
-	public void deleteEntinty() throws SQLException {
+	public void deleteEntinty(long id) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}

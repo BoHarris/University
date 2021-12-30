@@ -42,7 +42,11 @@ public class InstructorService implements IInstructorService {
 		i.setPositions(positionDao.getPositionById(id));
 		i.setDepartments(departmentDao.getDepartmentById(id));
 		i.setCredentials(credientalsDao.getCredientalsById(id));
-		i.setUsers(userDao.getUserById(id));
+		try {
+			i.setUsers(userDao.getUserById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 		return i;
 	}
 

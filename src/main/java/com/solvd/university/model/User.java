@@ -1,5 +1,6 @@
 package com.solvd.university.model;
 
+import java.sql.Array;
 import java.sql.Date;
 import java.util.List;
 
@@ -8,13 +9,15 @@ import com.solvd.university.model.address.Address;
 public class User {
 	private Long id;
 	private String email;
-	private String first_name;
-	private String middle_name;
-	private String last_name;
+	private String firstName;
+	private String middleName;
+	private String lastName;
 	private Date dateOfBirth;
-	private String home_phone;
-	private String cell_phone;
-	private String work_phone;
+	private String homePhone;
+	private String cellPhone;
+	private String workPhone;
+	private long addressId;
+	private long loginId;
 	private List<Address> addresses;
 	private List<Login> logins;
 
@@ -22,19 +25,39 @@ public class User {
 
 	}
 
-	public User(Long id, String email, String first_name, String middle_name, String last_name, String home_phone,
-			String cell_phone, String work_phone, List<Address> addresses, List<Login> logins) {
+	public User(Long id, String email, String firstName, String middleName, String lastName, Date dateOfBirth,
+			String homePhone, String cellPhone, String workPhone, long addressId, long loginId, List<Address> addresses,
+			List<Login> logins) {
 		super();
 		this.id = id;
 		this.email = email;
-		this.first_name = first_name;
-		this.middle_name = middle_name;
-		this.last_name = last_name;
-		this.home_phone = home_phone;
-		this.cell_phone = cell_phone;
-		this.work_phone = work_phone;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.homePhone = homePhone;
+		this.cellPhone = cellPhone;
+		this.workPhone = workPhone;
 		this.addresses = addresses;
 		this.logins = logins;
+		this.addressId = addressId;
+		this.loginId = loginId;
+	}
+
+	public long getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(long addressId) {
+		this.addressId = addressId;
+	}
+
+	public long getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(long loginId) {
+		this.loginId = loginId;
 	}
 
 	public Long getId() {
@@ -53,55 +76,55 @@ public class User {
 		this.email = email;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getMiddle_name() {
-		return middle_name;
+	public String getmiddleName() {
+		return middleName;
 	}
 
-	public void setMiddle_name(String middle_name) {
-		this.middle_name = middle_name;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getlastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setlastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getHome_phone() {
-		return home_phone;
+	public String gethomePhone() {
+		return homePhone;
 	}
 
-	public void setHome_phone(String home_phone) {
-		this.home_phone = home_phone;
+	public void sethomePhone(String homePhone) {
+		this.homePhone = homePhone;
 	}
 
-	public String getCell_phone() {
-		return cell_phone;
+	public String getcellPhone() {
+		return cellPhone;
 	}
 
-	public void setCell_phone(String cell_phone) {
-		this.cell_phone = cell_phone;
+	public void setcellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
 	}
 
-	public String getWork_phone() {
-		return work_phone;
+	public String getworkPhone() {
+		return workPhone;
 	}
 
-	public void setWork_phone(String work_phone) {
-		this.work_phone = work_phone;
+	public void setworkPhone(String workPhone) {
+		this.workPhone = workPhone;
 	}
 
-	public List<Address> getAddressId() {
+	public List<Address> getAddresses() {
 		return addresses;
 	}
 
@@ -109,7 +132,7 @@ public class User {
 		this.addresses = addresses;
 	}
 
-	public List<Login> getLoginId() {
+	public List<Login> getLogins() {
 		return logins;
 	}
 

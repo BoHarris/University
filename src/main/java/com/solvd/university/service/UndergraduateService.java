@@ -28,10 +28,13 @@ public class UndergraduateService implements IUndergraduateService {
 		try {
 			u = undergraduateDao.readEntity(id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			log.error(e.getMessage());
 		}
-		u.setUsers(userDao.getUserById(u.getId()));
+		try {
+			u.setUsers(userDao.getUserById(u.getId()));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 		u.setCourses(courseDao.getCourseById(u.getId()));
 		return u;
 	}
