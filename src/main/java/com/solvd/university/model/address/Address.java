@@ -13,12 +13,11 @@ public class Address {
 
 	}
 
-	public Address(Long id, Integer buildingNumber, String streetName, long cityId, List<City> citys) {
-		this.id = id;
+	public Address(Integer buildingNumber, String streetName) {
 		this.buildingNumber = buildingNumber;
 		this.streetName = streetName;
 		this.cityId = cityId;
-		this.citys = citys;
+
 	}
 
 	public Long getId() {

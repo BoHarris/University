@@ -29,7 +29,11 @@ public class AddressService implements IAddressService {
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		a.setCity(cityDao.getCityById(id));
+		try {
+			a.setCity(cityDao.getCityById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 		return a;
 	}
 

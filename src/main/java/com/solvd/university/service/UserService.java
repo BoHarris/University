@@ -32,7 +32,11 @@ public class UserService implements IUserService {
 
 			log.error(e.getMessage());
 		}
-		u.setAddressId(addressDao.getAddressById(id));
+		try {
+			u.setAddressId(addressDao.getAddressById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 		u.setLoginId(loginDao.getLoginById(id));
 
 		return u;

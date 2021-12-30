@@ -28,7 +28,11 @@ public class ContinentService implements IContinentService {
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		c.setCountries(countryDao.getCountryById(id));
+		try {
+			c.setCountries(countryDao.getCountryById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 		return c;
 	}
 

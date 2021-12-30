@@ -18,7 +18,7 @@ import com.solvd.university.service.interfaces.IStateService;
 
 public class StateService implements IStateService {
 	private IStateDao<State> stateDao = new StateDao();
-	private ICountryDao<Country> countryDao = new CountryDao<>();
+	private ICountryDao<Country> countryDao = new CountryDao();
 	private ICityDao<City> cityDao = new CityDao();
 	private static final Logger log = LogManager.getLogger(StateService.class.getName());
 
@@ -28,9 +28,13 @@ public class StateService implements IStateService {
 		try {
 			s = stateDao.readEntity(id);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
-		s.setCities(cityDao.getCityById(id));
+		try {
+			s.setCities(cityDao.getCityById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 		return s;
 	}
 

@@ -1,8 +1,5 @@
 package com.solvd.university.model.address;
 
-import com.solvd.university.enums.address.COUNTRY;
-import com.solvd.university.enums.address.STATE;
-
 import java.util.List;
 
 import org.apache.log4j.LogManager;
@@ -10,8 +7,7 @@ import org.apache.log4j.Logger;
 
 public class Country {
 	private long id;
-	private COUNTRY countryName;
-	private STATE stateName;
+	private String name;
 	private String countryCode;
 	private List<State> states;
 
@@ -21,13 +17,10 @@ public class Country {
 
 	}
 
-	public Country(long id, COUNTRY countryName, String countryCode, STATE state, List<State> states) {
+	public Country(String name, String countryCode) {
 
-		this.id = id;
-		this.countryName = countryName;
+		this.name = name;
 		this.countryCode = countryCode;
-		this.stateName = state;
-		this.states = states;
 
 	}
 
@@ -39,12 +32,12 @@ public class Country {
 		this.id = id;
 	}
 
-	public COUNTRY getCountry() {
-		return countryName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCountry(COUNTRY countryName) {
-		this.countryName = countryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCountryCode() {
@@ -53,14 +46,6 @@ public class Country {
 
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
-	}
-
-	public STATE getStateName() {
-		return stateName;
-	}
-
-	public void setStateName(STATE stateName) {
-		this.stateName = stateName;
 	}
 
 	public List<State> getStates() {
@@ -74,7 +59,7 @@ public class Country {
 	@Override
 	public String toString() {
 
-		return " Country Name : " + countryName + " Country Code : " + countryCode + "\n";
+		return " Country Name : " + name + " Country Code : " + countryCode + "\n";
 	}
 
 }

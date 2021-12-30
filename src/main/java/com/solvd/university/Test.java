@@ -1,27 +1,21 @@
 package com.solvd.university;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.StringReader;
-import java.io.StringWriter;
 import java.sql.Date;
 import java.sql.SQLException;
-
-import javax.xml.stream.FactoryConfigurationError;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.solvd.university.DAO.mysqlimpl.UserDao;
-import com.solvd.university.model.User;
-import com.solvd.university.model.connection.ConnectionPool;
+import com.solvd.university.DAO.mysqlimpl.AddressDao;
+import com.solvd.university.DAO.mysqlimpl.CityDao;
+import com.solvd.university.DAO.mysqlimpl.ContinentDao;
+import com.solvd.university.DAO.mysqlimpl.CountryDao;
+import com.solvd.university.DAO.mysqlimpl.StateDao;
+import com.solvd.university.model.address.Address;
+import com.solvd.university.model.address.City;
+import com.solvd.university.model.address.Continent;
+import com.solvd.university.model.address.Country;
+import com.solvd.university.model.address.State;
 
 public class Test {
 	private static final Logger log = LogManager.getLogger(Test.class.getName());
@@ -29,16 +23,46 @@ public class Test {
 
 	public static void main(String[] args) throws InterruptedException {
 		Date date = new Date(1220227200L * 1000);
-		User user = new User(null, FILE_NAME, FILE_NAME, FILE_NAME, FILE_NAME, date, FILE_NAME, FILE_NAME, FILE_NAME, 1,
-				1, null, null);
-		UserDao userDao = new UserDao();
+
+		ContinentDao continentDao = new ContinentDao();
+		Continent continent = new Continent("North America");
+
 		try {
-			userDao.createEntity(user);
+			continentDao.createEntity(continent);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			log.debug(e.getMessage());
 		}
 
+		CountryDao countryDao = new CountryDao();
+		Country country = new Country("United States", "N/A");
+
+		StateDao stateDao = new StateDao();
+		State state = new State("Florida", "32084");
+		try {
+			stateDao.createEntity(state);
+		} catch (SQLException e) {
+			log.debug(e.getMessage());
+		}
+
+		CityDao cityDao = new CityDao();
+		City city = new City("Saint Augustine", "32084");
+
+		try {
+			cityDao.createEntity(city);
+		} catch (SQLException e) {
+			log.debug(e.getMessage());
+		}
+
+		AddressDao addressDao = new AddressDao();
+		Address address = new Address(1, "Main Street");
+
+		try {
+			addressDao.createEntity(address);
+		} catch (SQLException e) {
+			log.debug(e.getMessage());
+		}
 	}
+
 }
 /*
  * 

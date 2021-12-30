@@ -25,11 +25,9 @@ public class User {
 
 	}
 
-	public User(Long id, String email, String firstName, String middleName, String lastName, Date dateOfBirth,
-			String homePhone, String cellPhone, String workPhone, long addressId, long loginId, List<Address> addresses,
-			List<Login> logins) {
+	public User( String email, String firstName, String middleName, String lastName, Date dateOfBirth,
+			String homePhone, String cellPhone, String workPhone, long addressId, long loginId) {
 		super();
-		this.id = id;
 		this.email = email;
 		this.firstName = firstName;
 		this.middleName = middleName;

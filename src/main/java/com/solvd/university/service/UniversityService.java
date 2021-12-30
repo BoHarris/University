@@ -26,7 +26,11 @@ public class UniversityService implements IUniversityService {
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		u.setAddresses(addressDao.getAddressById(u.getId()));
+		try {
+			u.setAddresses(addressDao.getAddressById(u.getId()));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 
 		return u;
 	}

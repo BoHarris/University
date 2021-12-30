@@ -4,13 +4,12 @@ public class City {
 	private Long id;
 	private String name;
 	private String zipCode;
-	
+
 	public City() {
 
 	}
 
-	public City(Long id, String name, String zipCode) {
-		this.id = id;
+	public City(String name, String zipCode) {
 		this.name = name;
 		this.zipCode = zipCode;
 	}

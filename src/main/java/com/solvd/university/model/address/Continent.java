@@ -5,11 +5,9 @@ import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.solvd.university.enums.address.CONTINENT;
-
 public class Continent {
 	private long id;
-	private CONTINENT name;
+	private String name;
 	private List<Country> countries;
 	private static final Logger log = LogManager.getLogger(Continent.class.getName());
 
@@ -17,11 +15,9 @@ public class Continent {
 
 	}
 
-	public Continent(long id, CONTINENT name, List<Country> countries) {
+	public Continent(String name) {
 
-		this.id = id;
 		this.name = name;
-		this.countries = countries;
 
 	}
 
@@ -33,11 +29,11 @@ public class Continent {
 		this.id = id;
 	}
 
-	public CONTINENT getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(CONTINENT name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 

@@ -18,7 +18,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 	private static final Logger log = LogManager.getLogger(AddressDao.class);
 	private static final String GET_ADDRESS_BY_ID = "Select * from Address where id=?";
 	private static final String CREATE_ADDRESS = "Insert into Address"
-			+ " ( building_number, street_name, city_id) VALUES (?,?,?)";
+			+ " ( building_number, street_name) VALUES (?,?)";
 	private static final String UPDATE_ADDRESS = "Update Address set building_number = ? where street_name = ?";
 	private static final String DELETE_ADDRESS = "Delete from Address where id = ?";
 
@@ -32,7 +32,6 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 			statement = connection.prepareStatement(CREATE_ADDRESS);
 			statement.setInt(1, entity.getBuildingNumber());
 			statement.setString(2, entity.getStreetName());
-			statement.setLong(3, entity.getCityId());
 			statement.executeUpdate();
 		} catch (Exception e) {
 			log.error(e.getMessage());
