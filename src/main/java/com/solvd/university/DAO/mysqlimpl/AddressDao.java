@@ -11,18 +11,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.university.DAO.IAddressDao;
-import com.solvd.university.model.User;
 import com.solvd.university.model.address.Address;
 import com.solvd.university.model.connection.ConnectionPool;
 
 public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address> {
-	private static final Logger log = LogManager.getLogger(UserDao.class);
-	private static final String GET_USERS_BY_ID = "Select * from Address where id=?";
+	private static final Logger log = LogManager.getLogger(AddressDao.class);
+	private static final String GET_ADDRESS_BY_ID = "Select * from Address where id=?";
 	private static final String CREATE_ADDRESS = "Insert into Address"
 			+ " ( building_number, street_name, city_id) VALUES (?,?,?)";
 	private static final String UPDATE_ADDRESS = "Update Address set building_number = ? where street_name = ?";
 	private static final String DELETE_ADDRESS = "Delete from Address where id = ?";
-	private static final String GET_Address_BY_ID = "Select * from Address where id=?";
 
 	@Override
 	public void createEntity(Address entity) throws SQLException {
@@ -52,7 +50,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 		Address address = null;
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_Address_BY_ID);
+			statement = connection.prepareStatement(GET_ADDRESS_BY_ID);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			resultSetToAddress(resultSet);
@@ -126,7 +124,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 		List<Address> addresses = new ArrayList<>();
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_Address_BY_ID);
+			statement = connection.prepareStatement(GET_ADDRESS_BY_ID);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
