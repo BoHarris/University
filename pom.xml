@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.solvd</groupId>
 	<artifactId>university</artifactId>
-	<version>1.1</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 	<name>University</name>
 	<url>HTTP://solvd.com</url>
