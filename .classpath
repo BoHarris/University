@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="resources/|target/|logs/" kind="src" path=""/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="src" path="target"/>
+	<classpathentry kind="src" path="logs"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/commons-io/commons-io-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/commons-io/commons-lang3-3.12.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/log4j/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/log4j/log4j-api-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/log4j/log4j-core-2.14.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/mysql connector 8.0.27/mysql-connector-java-8.0.27.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
