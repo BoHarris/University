@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="ALL">
     <Appenders>
     	<File name="LogToFile" fileName="logs/app.log">
             <PatternLayout>
@@ -11,7 +11,7 @@
         <Logger name="com.solvd.university" level="debug" additivity="false">
             <AppenderRef ref="LogToFile"/>
         </Logger>
-        <Root level="error">
+        <Root level="all">
             <AppenderRef ref="LogToFile"/>
         </Root>
     </Loggers>

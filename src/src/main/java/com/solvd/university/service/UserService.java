@@ -37,7 +37,11 @@ public class UserService implements IUserService {
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		u.setLoginId(loginDao.getLoginById(id));
+		try {
+			u.setLoginId(loginDao.getLoginById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
 
 		return u;
 	}

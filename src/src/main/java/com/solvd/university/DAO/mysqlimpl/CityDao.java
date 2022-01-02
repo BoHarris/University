@@ -19,9 +19,18 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 
 	private static final Logger log = LogManager.getLogger(CityDao.class);
 	private static final String GET_CITY_BY_ID = "Select * from City where id=?";
-	private static final String CREATE_CITY = "Insert into City" + " ( name, zipcode) VALUES (?,?)";
+	private static final String CREATE_CITY = "Insert into City" + " ( name, zipcode, state_id) VALUES (?,?,?)";
 	private static final String UPDATE_CITY = "Update City set zipcode = ? where name = ?";
 	private static final String DELETE_CITY = "Delete from Address where id = ?";
+	private Long cityId;
+
+	public Long getCityId() {
+		return cityId;
+	}
+
+	public Long setCityId(Long cityId) {
+		return this.cityId = cityId;
+	}
 
 	@Override
 	public void createEntity(City entity) throws SQLException {
@@ -33,6 +42,7 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 			statement = connection.prepareStatement(CREATE_CITY);
 			statement.setString(1, entity.getName());
 			statement.setString(2, entity.getZipCode());
+			statement.setLong(3, entity.getStateId());
 			statement.executeUpdate();
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -68,13 +78,30 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 		City city = new City();
 
 		try {
-			city.setName(resultSet.getString("name"));
-			city.setZipCode(resultSet.getString("zipcode"));
+			while (resultSet.next()) {
+				Long id = resultSet.getLong(1);
+				String name = resultSet.getString(2);
+				String zipCode = resultSet.getString(3);
+				Long stateId = resultSet.getLong(4);
+
+				cityId = setCityId(city.setId(id));
+
+				city.setName(name);
+				city.setZipCode(zipCode);
+				city.setStateId(stateId);
+
+				id = city.getId();
+				name = city.getName();
+				zipCode = city.getZipCode();
+				log.debug(id + " " + name + " " + " " + zipCode + " " + stateId);
+
+				return city;
+			}
 
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		return city;
+		return null;
 	}
 
 	@Override

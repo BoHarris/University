@@ -4,22 +4,24 @@ public class City {
 	private Long id;
 	private String name;
 	private String zipCode;
+	private long stateId;
 
 	public City() {
 
 	}
 
-	public City(String name, String zipCode) {
+	public City(String name, String zipCode, long stateId) {
 		this.name = name;
 		this.zipCode = zipCode;
+		this.setStateId(stateId);
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long setId(Long id) {
+		return this.id = id;
 	}
 
 	public String getName() {
@@ -36,5 +38,13 @@ public class City {
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+
+	public long getStateId() {
+		return stateId;
+	}
+
+	public void setStateId(long stateId) {
+		this.stateId = stateId;
 	}
 }

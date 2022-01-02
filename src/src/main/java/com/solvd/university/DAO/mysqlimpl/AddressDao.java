@@ -18,9 +18,18 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 	private static final Logger log = LogManager.getLogger(AddressDao.class);
 	private static final String GET_ADDRESS_BY_ID = "Select * from Address where id=?";
 	private static final String CREATE_ADDRESS = "Insert into Address"
-			+ " ( building_number, street_name) VALUES (?,?)";
+			+ " ( building_number, street_name, city_id) VALUES (?,?,?)";
 	private static final String UPDATE_ADDRESS = "Update Address set building_number = ? where street_name = ?";
 	private static final String DELETE_ADDRESS = "Delete from Address where id = ?";
+	private Long addressId;
+
+	public Long getAddressId() {
+		return addressId;
+	}
+
+	public Long setAddressId(Long addressId) {
+		return this.addressId = addressId;
+	}
 
 	@Override
 	public void createEntity(Address entity) throws SQLException {
@@ -32,6 +41,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 			statement = connection.prepareStatement(CREATE_ADDRESS);
 			statement.setInt(1, entity.getBuildingNumber());
 			statement.setString(2, entity.getStreetName());
+			statement.setLong(3, entity.getCityId());
 			statement.executeUpdate();
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -67,13 +77,32 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 		Address address = new Address();
 
 		try {
-			address.setBuildingNumber(resultSet.getInt("build_number"));
-			address.setStreetName(resultSet.getString("street_name"));
 
-		} catch (SQLException e) {
+			while (resultSet.next()) {
+				long id = resultSet.getLong(1);
+				int buildingNumber = resultSet.getInt(2);
+				String streetName = resultSet.getString(3);
+				Long cityId = resultSet.getLong(4);
+
+				addressId = setAddressId(address.setId(id));
+				address.setBuildingNumber(buildingNumber);
+				address.setStreetName(streetName);
+				address.setCityId(cityId);
+
+				id = address.getId();
+				buildingNumber = address.getBuildingNumber();
+				streetName = address.getStreetName();
+				cityId = address.getCityId();
+				log.debug(id + " " + buildingNumber + " " + " " + streetName + " " + cityId);
+				System.out.println(id + " " + buildingNumber + " " + " " + streetName + " " + cityId);
+				return address;
+			}
+		} catch (
+
+		SQLException e) {
 			log.error(e.getMessage());
 		}
-		return address;
+		return null;
 	}
 
 	@Override

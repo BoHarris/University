@@ -25,8 +25,8 @@ public class User {
 
 	}
 
-	public User( String email, String firstName, String middleName, String lastName, Date dateOfBirth,
-			String homePhone, String cellPhone, String workPhone, long addressId, long loginId) {
+	public User(String email, String firstName, String middleName, String lastName, Date dateOfBirth, String homePhone,
+			String cellPhone, String workPhone, long addressId, long loginId) {
 		super();
 		this.email = email;
 		this.firstName = firstName;
@@ -62,8 +62,8 @@ public class User {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long setId(Long id) {
+		return this.id = id;
 	}
 
 	public String getEmail() {
@@ -82,7 +82,7 @@ public class User {
 		this.firstName = firstName;
 	}
 
-	public String getmiddleName() {
+	public String getMiddleName() {
 		return middleName;
 	}
 
@@ -90,35 +90,35 @@ public class User {
 		this.middleName = middleName;
 	}
 
-	public String getlastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	public void setlastName(String lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
-	public String gethomePhone() {
+	public String getHomePhone() {
 		return homePhone;
 	}
 
-	public void sethomePhone(String homePhone) {
+	public void setHomePhone(String homePhone) {
 		this.homePhone = homePhone;
 	}
 
-	public String getcellPhone() {
+	public String getCellPhone() {
 		return cellPhone;
 	}
 
-	public void setcellPhone(String cellPhone) {
+	public void setCellPhone(String cellPhone) {
 		this.cellPhone = cellPhone;
 	}
 
-	public String getworkPhone() {
+	public String getWorkPhone() {
 		return workPhone;
 	}
 
-	public void setworkPhone(String workPhone) {
+	public void setWorkPhone(String workPhone) {
 		this.workPhone = workPhone;
 	}
 

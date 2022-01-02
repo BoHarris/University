@@ -1,6 +1,7 @@
 package src.main.java.com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +25,16 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 	private static final String DELETE_USER = "Delete from User where id = ?";
 	private static final String GET_USER_BY_ID = "Select * from User where id=?";
 
+	private Long userId;
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public Long setUserId(Long userId) {
+		return this.userId = userId;
+	}
+
 	@Override
 	public void createEntity(User entity) throws SQLException {
 		Connection connection = null;
@@ -34,12 +45,12 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 			statement = connection.prepareStatement(CREATE_USER);
 			statement.setString(1, entity.getEmail());
 			statement.setString(2, entity.getFirstName());
-			statement.setString(3, entity.getmiddleName());
-			statement.setString(4, entity.getlastName());
+			statement.setString(3, entity.getMiddleName());
+			statement.setString(4, entity.getLastName());
 			statement.setDate(5, entity.getDateOfBirth());
-			statement.setString(6, entity.gethomePhone());
-			statement.setString(7, entity.getcellPhone());
-			statement.setString(8, entity.getworkPhone());
+			statement.setString(6, entity.getHomePhone());
+			statement.setString(7, entity.getCellPhone());
+			statement.setString(8, entity.getWorkPhone());
 			statement.setLong(9, entity.getAddressId());
 			statement.setLong(10, entity.getLoginId());
 			statement.executeUpdate();
@@ -77,18 +88,51 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		User user = new User();
 
 		try {
-			user.setFirstName(resultSet.getString("first_name"));
-			user.setMiddleName(resultSet.getString("middle_name"));
-			user.setlastName(resultSet.getString("last_name"));
-			user.setDateOfBirth(resultSet.getDate("date_of_birth"));
-			user.sethomePhone(resultSet.getString("home_phone"));
-			user.setcellPhone(resultSet.getString("cell_phone"));
-			user.setworkPhone(resultSet.getString("work_phone"));
+			while (resultSet.next()) {
+				Long id = resultSet.getLong(1);
+				String email = resultSet.getString(2);
+				String firstName = resultSet.getString(3);
+				String middleName = resultSet.getString(4);
+				String lastName = resultSet.getString(5);
+				Date dateOfBith = resultSet.getDate(6);
+				String homePhone = resultSet.getString(7);
+				String cellPhone = resultSet.getString(8);
+				String workPhone = resultSet.getString(9);
+				Long addressId = resultSet.getLong(10);
+				Long loginId = resultSet.getLong(11);
+
+				userId = setUserId(user.setId(id));
+
+				user.setFirstName(firstName);
+				user.setMiddleName(middleName);
+				user.setLastName(lastName);
+				user.setDateOfBirth(dateOfBith);
+				user.setHomePhone(homePhone);
+				user.setCellPhone(cellPhone);
+				user.setWorkPhone(workPhone);
+				user.setAddressId(addressId);
+				user.setLoginId(loginId);
+
+				id = user.getId();
+				firstName = user.getFirstName();
+				middleName = user.getMiddleName();
+				lastName = user.getLastName();
+				dateOfBith = user.getDateOfBirth();
+				homePhone = user.getHomePhone();
+				cellPhone = user.getCellPhone();
+				workPhone = user.getWorkPhone();
+				addressId = user.getAddressId();
+				loginId = user.getLoginId();
+				log.debug(id + " " + firstName + " " + " " + middleName + " " + " " + lastName + " " + " " + dateOfBith
+						+ " " + " " + email + " " + " " + homePhone + " " + " " + cellPhone + " " + " " + workPhone);
+
+				return user;
+			}
 
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		return user;
+		return null;
 	}
 
 	@Override
@@ -98,8 +142,8 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
 			statement = connection.prepareStatement(UPDATE_USER);
-			statement.setString(1, entity.getcellPhone());
-			statement.setString(2, entity.getlastName());
+			statement.setString(1, entity.getCellPhone());
+			statement.setString(2, entity.getLastName());
 			statement.executeUpdate();
 
 		} catch (Exception e) {
@@ -146,7 +190,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				User user = new User();
 				user.setId(resultSet.getLong("id"));
 				user.setFirstName(resultSet.getString("first_name"));
-				user.setlastName(resultSet.getString("last_name"));
+				user.setLastName(resultSet.getString("last_name"));
 				users.add(user);
 
 			}

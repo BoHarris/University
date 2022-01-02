@@ -9,7 +9,7 @@ public class Login {
 
 	}
 
-	public Login(Long id, String name, String password) {
+	public Login(String name, String password) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,8 +20,8 @@ public class Login {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long setId(Long id) {
+		return this.id = id;
 	}
 
 	public String getName() {

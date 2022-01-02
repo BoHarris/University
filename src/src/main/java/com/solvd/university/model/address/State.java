@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 public class State {
 	private long id;
 	private String name;
-	private String zipCode;
 	private long countryId;
 	private List<City> cities;
 	private static final Logger log = LogManager.getLogger(State.class.getName());
@@ -17,9 +16,10 @@ public class State {
 
 	}
 
-	public State(String name, String zipCode) {
+	public State(String name, long countryId) {
 
 		this.name = name;
+		this.countryId = countryId;
 
 	}
 
@@ -27,8 +27,8 @@ public class State {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public Long setId(long id) {
+		return this.id = id;
 	}
 
 	public String getName() {
@@ -37,14 +37,6 @@ public class State {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getZipCode() {
-		return zipCode;
-	}
-
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
 	}
 
 	public long getCountryId() {

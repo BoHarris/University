@@ -10,7 +10,6 @@ import src.main.java.com.solvd.university.DAO.mysqlimpl.ContinentDao;
 public class Continent {
 	private long id;
 	private String name;
-	ContinentDao continentId;
 	private List<Country> countries;
 	private static final Logger log = LogManager.getLogger(Continent.class.getName());
 
@@ -19,7 +18,6 @@ public class Continent {
 	}
 
 	public Continent(String name) {
-		this.id = id;
 		this.name = name;
 
 	}

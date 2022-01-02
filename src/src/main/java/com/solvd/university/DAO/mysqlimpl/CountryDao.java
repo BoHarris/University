@@ -22,6 +22,15 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 			+ " ( name, country_code, continent_id) VALUES (?,?,?)";
 	private static final String UPDATE_COUNTRY = "Update Country set zipcode = ? where name = ?";
 	private static final String DELETE_COUNTRY = "Delete from Address where id = ?";
+	private Long countryId;
+
+	public Long getCountryId() {
+		return countryId;
+	}
+
+	public Long setCountryId(Long countryId) {
+		return this.countryId = countryId;
+	}
 
 	@Override
 	public void createEntity(Country entity) throws SQLException {
@@ -78,7 +87,7 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 				String name = resultSet.getString(2);
 				String countrycode = resultSet.getString(3);
 				Long continentId = resultSet.getLong(4);
-				country.setId(id);
+				countryId = setCountryId(country.setId(id));
 				country.setName(name);
 				country.setCountryCode(countrycode);
 				country.setContientId(continentId);
@@ -86,12 +95,11 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 				id = country.getId();
 				name = country.getName();
 				countrycode = country.getCountryCode();
-				continentId = country.getContientId();
-				System.out.println(id + " " + name + " " + " " + countrycode + " " + continentId);
+				log.debug(id + " " + name + " " + " " + countrycode + " " + continentId);
 
+				return country;
 			}
 
-			return country;
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}

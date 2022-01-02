@@ -79,9 +79,9 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 			while (resultSet.next()) {
 				Long id = resultSet.getLong(1);
 				String name = resultSet.getString(2);
-				continent.setId(id);
+				continentId = continent.setId(id);
 				continent.setName(name);
-				System.out.println(id + " "+ name);
+				log.debug(id + " " + name);
 
 				return continent;
 			}
@@ -95,17 +95,17 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 	@Override
 	public void updateEntity(Continent entity) throws SQLException {
 		Connection connection = null;
-		PreparedStatement Continentment = null;
+		PreparedStatement statement = null;
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			Continentment = connection.prepareStatement(UPDATE_CONTINENT);
-			Continentment.setString(1, entity.getName());
-			Continentment.executeUpdate();
+			statement = connection.prepareStatement(UPDATE_CONTINENT);
+			statement.setString(1, entity.getName());
+			statement.executeUpdate();
 
 		} catch (Exception e) {
 			log.error(e);
 		} finally {
-			Continentment.close();
+			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
 		}
 
@@ -114,17 +114,17 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 	@Override
 	public void deleteEntinty(long id) throws SQLException {
 		Connection connection = null;
-		PreparedStatement Continentment = null;
+		PreparedStatement statement = null;
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			Continentment = connection.prepareStatement(DELETE_CONTINENT);
-			Continentment.setLong(1, id);
-			Continentment.executeUpdate();
+			statement = connection.prepareStatement(DELETE_CONTINENT);
+			statement.setLong(1, id);
+			statement.executeUpdate();
 
 		} catch (Exception e) {
 			log.error(e);
 		} finally {
-			Continentment.close();
+			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
 		}
 
@@ -143,9 +143,9 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				Continent Continent = new Continent();
-				Continent.setId(resultSet.getLong("id"));
-				Continent.setName(resultSet.getString("name"));
+				Continent continent = new Continent();
+				continent.setId(resultSet.getLong("id"));
+				continent.setName(resultSet.getString("name"));
 
 			}
 			log.info(continents);

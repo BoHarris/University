@@ -18,9 +18,18 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 
 	private static final Logger log = LogManager.getLogger(StateDao.class);
 	private static final String GET_STATE_BY_ID = "Select * from State where id=?";
-	private static final String CREATE_STATE = "Insert into State" + " ( name, ) VALUES (?)";
+	private static final String CREATE_STATE = "Insert into State" + " ( name,country_id ) VALUES (?,?)";
 	private static final String UPDATE_STATE = "Update State set name = ? where name = ?";
 	private static final String DELETE_STATE = "Delete from Address where id = ?";
+	private Long stateId;
+
+	public Long getStateId() {
+		return stateId;
+	}
+
+	public Long setStateId(Long stateId) {
+		return this.stateId = stateId;
+	}
 
 	@Override
 	public void createEntity(State entity) throws SQLException {
@@ -31,6 +40,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 			connection = ConnectionPool.getInstance().getConnection();
 			statement = connection.prepareStatement(CREATE_STATE);
 			statement.setString(1, entity.getName());
+			statement.setLong(2, entity.getCountryId());
 			statement.executeUpdate();
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -67,14 +77,25 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 
 		try {
 			while (resultSet.next()) {
-			state.setName(resultSet.getString("name"));
-			
+				Long id = resultSet.getLong(1);
+				String name = resultSet.getString(2);
+				Long countryId = resultSet.getLong(3);
+
+				stateId = setStateId(state.setId(id));
+
+				state.setName(name);
+				state.setCountryId(countryId);
+
+				id = state.getId();
+				name = state.getName();
+				log.debug(id + " " + name + " " + " " + stateId);
+				return state;
 			}
 
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		return state;
+		return null;
 	}
 
 	@Override

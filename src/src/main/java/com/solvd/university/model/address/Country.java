@@ -30,8 +30,8 @@ public class Country {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public Long setId(long id) {
+		return this.id = id;
 	}
 
 	public String getName() {
