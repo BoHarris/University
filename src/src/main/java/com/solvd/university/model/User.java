@@ -11,31 +11,19 @@ import src.main.java.com.solvd.university.model.address.Address;
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class User {
-	
+
 	private Long id;
-	
 	private String email;
-	@XmlElement(name = "fName")
 	private String firstName;
-	@XmlElement(name = "mName")
 	private String middleName;
-	@XmlElement(name = "lName")
 	private String lastName;
-	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfBirth;
-	@XmlElement(name = "hPhone")
 	private String homePhone;
-	@XmlElement(name = "cPhone")
 	private String cellPhone;
-	@XmlElement(name = "wPhone")
 	private String workPhone;
-	@XmlElement(name = "addressId")
 	private long addressId;
-	@XmlElement(name = "loginId")
 	private long loginId;
-	@XmlElement(name = "address")
 	private List<Address> addresses;
-	@XmlElement(name = "login")
 	private List<Login> logins;
 
 	public User() {
@@ -59,21 +47,6 @@ public class User {
 		this.loginId = loginId;
 	}
 
-	public long getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(long addressId) {
-		this.addressId = addressId;
-	}
-
-	public long getLoginId() {
-		return loginId;
-	}
-
-	public void setLoginId(long loginId) {
-		this.loginId = loginId;
-	}
 	@XmlAttribute(name = "id")
 	public Long getId() {
 		return id;
@@ -82,6 +55,7 @@ public class User {
 	public Long setId(Long id) {
 		return this.id = id;
 	}
+
 	@XmlElement(name = "email")
 	public String getEmail() {
 		return email;
@@ -91,6 +65,7 @@ public class User {
 		this.email = email;
 	}
 
+	@XmlElement(name = "fName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -99,6 +74,7 @@ public class User {
 		this.firstName = firstName;
 	}
 
+	@XmlElement(name = "mName")
 	public String getMiddleName() {
 		return middleName;
 	}
@@ -107,6 +83,7 @@ public class User {
 		this.middleName = middleName;
 	}
 
+	@XmlElement(name = "lName")
 	public String getLastName() {
 		return lastName;
 	}
@@ -115,6 +92,16 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	@XmlJavaTypeAdapter(DateAdapter.class)
+	public java.sql.Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	@XmlElement(name = "hPhone")
 	public String getHomePhone() {
 		return homePhone;
 	}
@@ -123,6 +110,7 @@ public class User {
 		this.homePhone = homePhone;
 	}
 
+	@XmlElement(name = "cPhone")
 	public String getCellPhone() {
 		return cellPhone;
 	}
@@ -131,6 +119,7 @@ public class User {
 		this.cellPhone = cellPhone;
 	}
 
+	@XmlElement(name = "wPhone")
 	public String getWorkPhone() {
 		return workPhone;
 	}
@@ -139,6 +128,7 @@ public class User {
 		this.workPhone = workPhone;
 	}
 
+	@XmlElement(name = "address")
 	public List<Address> getAddresses() {
 		return addresses;
 	}
@@ -147,6 +137,7 @@ public class User {
 		this.addresses = addresses;
 	}
 
+	@XmlElement(name = "login")
 	public List<Login> getLogins() {
 		return logins;
 	}
@@ -155,12 +146,22 @@ public class User {
 		this.logins = logins;
 	}
 
-	public java.sql.Date getDateOfBirth() {
-		return dateOfBirth;
+	@XmlElement(name = "addressId")
+	public long getAddressId() {
+		return addressId;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setAddressId(long addressId) {
+		this.addressId = addressId;
+	}
+
+	@XmlElement(name = "loginId")
+	public long getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(long loginId) {
+		this.loginId = loginId;
 	}
 
 }
