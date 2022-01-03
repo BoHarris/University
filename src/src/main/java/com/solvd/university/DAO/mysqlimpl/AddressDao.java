@@ -94,7 +94,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 				streetName = address.getStreetName();
 				cityId = address.getCityId();
 				log.debug(id + " " + buildingNumber + " " + " " + streetName + " " + cityId);
-				System.out.println(id + " " + buildingNumber + " " + " " + streetName + " " + cityId);
+
 				return address;
 			}
 		} catch (

@@ -1,5 +1,5 @@
 
-package src.main.java;
+package src.main.java.com.solvd.university;
 
 import java.io.File;
 import java.io.FileInputStream;

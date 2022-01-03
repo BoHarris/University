@@ -1,7 +1,14 @@
-package src.main.java;
+package src.main.java.com.solvd.university;
 
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Date;
 import java.sql.SQLException;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,12 +35,10 @@ public class Test {
 	public static void main(String[] args) {
 		ContinentDao continentDao = new ContinentDao();
 		Continent continent = new Continent("North America");
-
-		try {
-			continentDao.createEntity(continent);
-		} catch (SQLException e) {
-			log.error(e.getMessage());
-		}
+		/*
+		 * try { continentDao.createEntity(continent); } catch (SQLException e) {
+		 * log.error(e.getMessage()); }
+		 */
 		/* read and get Continent ID making id available for use for foreign keys */
 		try {
 			continentDao.readEntity(1);
@@ -44,13 +49,10 @@ public class Test {
 		continent.setId(continentDao.getContinentId());
 		CountryDao countryDao = new CountryDao();
 		Country country = new Country("United States", "N/A", continent.getId());
-
-		try {
-			countryDao.createEntity(country);
-		} catch (SQLException e) {
-			log.error(e.getMessage());
-		}
-
+		/*
+		 * try { countryDao.createEntity(country); } catch (SQLException e) {
+		 * log.error(e.getMessage()); }
+		 */
 		/* read and get country ID making id available for use for foreign keys */
 		try {
 			countryDao.readEntity(1);
@@ -61,16 +63,16 @@ public class Test {
 		country.setId(countryDao.getCountryId());
 		StateDao stateDao = new StateDao();
 		State state = new State("Florida", country.getId());
-
-		try {
-			stateDao.createEntity(state);
-		} catch (SQLException e) {
-			log.error(e.getMessage());
-		}
-
+		/*
+		 * try { stateDao.createEntity(state); } catch (SQLException e) {
+		 * log.error(e.getMessage()); }
+		 */
 		try {/* read and get State ID making id available for use for foreign keys */
+
 			stateDao.readEntity(1);
-		} catch (SQLException e) {
+		} catch (
+
+		SQLException e) {
 			log.error(e.getMessage());
 
 		}
@@ -79,12 +81,10 @@ public class Test {
 		CityDao cityDao = new CityDao();
 		City city = new City("Chrismas", "32709", state.getId());
 
-		try {
-			cityDao.createEntity(city);
-		} catch (SQLException e) {
-			log.error(e.getMessage());
-		}
-
+		/*
+		 * try { cityDao.createEntity(city); } catch (SQLException e) {
+		 * log.error(e.getMessage()); }
+		 */
 		try {/* read and get City ID making id available for use for foreign keys */
 			cityDao.readEntity(1);
 		} catch (SQLException e) {
@@ -95,21 +95,20 @@ public class Test {
 		city.setId(cityDao.getCityId());
 		AddressDao addressDao = new AddressDao();
 		Address address = new Address(1, "Main Street", city.getId());
-
-		try {
-			addressDao.createEntity(address);
-		} catch (SQLException e) {
-			log.error(e.getMessage());
-		}
-
+		/*
+		 * try { addressDao.createEntity(address); } catch (SQLException e) {
+		 * log.error(e.getMessage()); }
+		 */
 		try {/* read and get Address ID making id available for use for foreign keys */
+
 			addressDao.readEntity(1);
-		} catch (SQLException e) {
+		} catch (
+
+		SQLException e) {
 			log.error(e.getMessage());
 
 		}
 		address.setId(addressDao.getAddressId());
-		System.out.println(address.getId());
 
 		LoginDao loginDao = new LoginDao();
 		Login login = new Login("Bob.Smith", "SmithBob");
@@ -133,16 +132,24 @@ public class Test {
 		UserDao userDao = new UserDao();
 		User user = new User("Bob.SMith@Company.com", "Bob", "Michael", "Smith", birthDate, "222-222-2222",
 				"333-333-3333", "444-444-4444", address.getId(), login.getId());
-
+		/*
+		 * try { userDao.createEntity(user); } catch (SQLException e) {
+		 * log.error(e.getMessage()); }
+		 */
 		try {
-			userDao.createEntity(user);
+			userDao.readEntity(1);
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
 
 		try {
-			userDao.readEntity(1);
-		} catch (SQLException e) {
+			JAXBContext jc = JAXBContext.newInstance(User.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(user, new File(FILE_NAME));
+
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
 			log.error(e.getMessage());
 		}
 

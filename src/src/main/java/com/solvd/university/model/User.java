@@ -1,24 +1,41 @@
 package src.main.java.com.solvd.university.model;
 
-import java.sql.Array;
 import java.sql.Date;
 import java.util.List;
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import src.main.java.com.solvd.university.DateAdapter;
 import src.main.java.com.solvd.university.model.address.Address;
 
+@XmlRootElement(name = "user")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class User {
+	
 	private Long id;
+	
 	private String email;
+	@XmlElement(name = "fName")
 	private String firstName;
+	@XmlElement(name = "mName")
 	private String middleName;
+	@XmlElement(name = "lName")
 	private String lastName;
+	@XmlJavaTypeAdapter(DateAdapter.class)
 	private Date dateOfBirth;
+	@XmlElement(name = "hPhone")
 	private String homePhone;
+	@XmlElement(name = "cPhone")
 	private String cellPhone;
+	@XmlElement(name = "wPhone")
 	private String workPhone;
+	@XmlElement(name = "addressId")
 	private long addressId;
+	@XmlElement(name = "loginId")
 	private long loginId;
+	@XmlElement(name = "address")
 	private List<Address> addresses;
+	@XmlElement(name = "login")
 	private List<Login> logins;
 
 	public User() {
@@ -57,7 +74,7 @@ public class User {
 	public void setLoginId(long loginId) {
 		this.loginId = loginId;
 	}
-
+	@XmlAttribute(name = "id")
 	public Long getId() {
 		return id;
 	}
@@ -65,7 +82,7 @@ public class User {
 	public Long setId(Long id) {
 		return this.id = id;
 	}
-
+	@XmlElement(name = "email")
 	public String getEmail() {
 		return email;
 	}
@@ -138,7 +155,7 @@ public class User {
 		this.logins = logins;
 	}
 
-	public Date getDateOfBirth() {
+	public java.sql.Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
