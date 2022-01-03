@@ -2,9 +2,16 @@ package src.main.java.com.solvd.university.model.address;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
+@XmlRootElement(name = "state")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class State {
 	private long id;
 	private String name;
@@ -23,6 +30,7 @@ public class State {
 
 	}
 
+	@XmlAttribute(name = "id")
 	public long getId() {
 		return id;
 	}
@@ -31,6 +39,7 @@ public class State {
 		return this.id = id;
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -39,6 +48,7 @@ public class State {
 		this.name = name;
 	}
 
+	@XmlElement(name = "countryId")
 	public long getCountryId() {
 		return countryId;
 	}
@@ -47,6 +57,7 @@ public class State {
 		this.countryId = countryId;
 	}
 
+	@XmlElement(name = "cities")
 	public List<City> getCities() {
 		return cities;
 	}

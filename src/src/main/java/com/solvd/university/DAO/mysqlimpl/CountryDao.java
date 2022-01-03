@@ -41,7 +41,7 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 			statement = connection.prepareStatement(CREATE_COUNTRY);
 			statement.setString(1, entity.getName());
 			statement.setString(2, entity.getCountryCode());
-			statement.setLong(3, entity.getContientId());
+			statement.setLong(3, entity.getContinentId());
 			statement.executeUpdate();
 		} catch (Exception e) {
 			log.error(e.getMessage());

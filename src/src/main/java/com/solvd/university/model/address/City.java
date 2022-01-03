@@ -1,5 +1,12 @@
 package src.main.java.com.solvd.university.model.address;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name = "city")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class City {
 	private Long id;
 	private String name;
@@ -16,6 +23,7 @@ public class City {
 		this.setStateId(stateId);
 	}
 
+	@XmlAttribute(name = "id")
 	public Long getId() {
 		return id;
 	}
@@ -24,6 +32,7 @@ public class City {
 		return this.id = id;
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -32,6 +41,7 @@ public class City {
 		this.name = name;
 	}
 
+	@XmlElement(name = "zipCode")
 	public String getZipCode() {
 		return zipCode;
 	}
@@ -40,6 +50,7 @@ public class City {
 		this.zipCode = zipCode;
 	}
 
+	@XmlElement(name = "stateId")
 	public long getStateId() {
 		return stateId;
 	}

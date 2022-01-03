@@ -2,11 +2,16 @@ package src.main.java.com.solvd.university.model.address;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-
-import src.main.java.com.solvd.university.DAO.mysqlimpl.ContinentDao;
-
+@XmlRootElement(name = "continent")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Continent {
 	private long id;
 	private String name;
@@ -22,6 +27,7 @@ public class Continent {
 
 	}
 
+	@XmlAttribute(name = "id")
 	public long getId() {
 		return id;
 	}
@@ -30,6 +36,7 @@ public class Continent {
 		return this.id = id;
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -38,6 +45,7 @@ public class Continent {
 		return this.name = name;
 	}
 
+	@XmlElement(name = "countries")
 	public List<Country> getCountries() {
 		return countries;
 	}

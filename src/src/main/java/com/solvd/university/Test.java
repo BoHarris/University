@@ -30,7 +30,13 @@ import src.main.java.com.solvd.university.model.address.State;
 
 public class Test {
 	private static final Logger log = LogManager.getLogger(Test.class.getName());
-	private static final String FILE_NAME = "resources/User.xml";
+	private static final String USER_XML_FILE = "resources/User.xml";
+	private static final String LOGIN_XML_FILE = "resources/Login.xml";
+	private static final String ADDRESS_XML_FILE = "resources/Address.xml";
+	private static final String CITY_XML_FILE = "resources/City.xml";
+	private static final String STATE_XML_FILE = "resources/State.xml";
+	private static final String COUNTRY_XML_FILE = "resources/Country.xml";
+	private static final String CONTINENT_XML_FILE = "resources/Continent.xml";
 
 	public static void main(String[] args) {
 		ContinentDao continentDao = new ContinentDao();
@@ -145,8 +151,63 @@ public class Test {
 		try {
 			JAXBContext jc = JAXBContext.newInstance(User.class);
 			Marshaller m = jc.createMarshaller();
-			m.marshal(user, new File(FILE_NAME));
+			m.marshal(user, new File(USER_XML_FILE));
 
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
+			log.error(e.getMessage());
+		}
+		try {
+			JAXBContext jc = JAXBContext.newInstance(Login.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(login, new File(LOGIN_XML_FILE));
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
+			log.error(e.getMessage());
+		}
+
+		try {
+			JAXBContext jc = JAXBContext.newInstance(Address.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(address, new File(ADDRESS_XML_FILE));
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
+			log.error(e.getMessage());
+		}
+		try {
+			JAXBContext jc = JAXBContext.newInstance(City.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(city, new File(CITY_XML_FILE));
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
+			log.error(e.getMessage());
+		}
+		try {
+			JAXBContext jc = JAXBContext.newInstance(State.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(state, new File(STATE_XML_FILE));
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
+			log.error(e.getMessage());
+		}
+		try {
+			JAXBContext jc = JAXBContext.newInstance(Country.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(country, new File(COUNTRY_XML_FILE));
+			Unmarshaller um = jc.createUnmarshaller();
+
+		} catch (JAXBException e) {
+			log.error(e.getMessage());
+		}
+		try {
+			JAXBContext jc = JAXBContext.newInstance(Continent.class);
+			Marshaller m = jc.createMarshaller();
+			m.marshal(continent, new File(CONTINENT_XML_FILE));
 			Unmarshaller um = jc.createUnmarshaller();
 
 		} catch (JAXBException e) {

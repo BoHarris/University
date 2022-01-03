@@ -1,5 +1,13 @@
 package src.main.java.com.solvd.university.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "user")
+@XmlAccessorType(XmlAccessType.PROPERTY)
 public class Login {
 	private Long id;
 	private String name;
@@ -16,6 +24,7 @@ public class Login {
 		this.password = password;
 	}
 
+	@XmlAttribute(name = "id")
 	public Long getId() {
 		return id;
 	}
@@ -24,6 +33,7 @@ public class Login {
 		return this.id = id;
 	}
 
+	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -32,6 +42,7 @@ public class Login {
 		this.name = name;
 	}
 
+	@XmlElement(name = "password")
 	public String getPassword() {
 		return password;
 	}
