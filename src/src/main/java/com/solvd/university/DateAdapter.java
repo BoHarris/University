@@ -9,12 +9,12 @@ public class DateAdapter extends XmlAdapter<String, Date> {
 
 	@Override
 	public String marshal(Date value) throws Exception {
-		return new SimpleDateFormat("mm/DD/yyyy").format(value);
+		return new SimpleDateFormat("MM/dd/yyyy").format(value);
 	}
 
 	@Override
 	public Date unmarshal(String value) throws Exception {
-		return new SimpleDateFormat("mm/DD/yyyy").parse(value);
+		return new SimpleDateFormat("MM/dd/yyyy").parse(value);
 	}
 
 }
