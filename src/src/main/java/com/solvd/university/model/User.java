@@ -2,7 +2,12 @@ package src.main.java.com.solvd.university.model;
 
 import java.sql.Date;
 import java.util.List;
-import javax.xml.bind.annotation.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import src.main.java.com.solvd.university.DateAdapter;

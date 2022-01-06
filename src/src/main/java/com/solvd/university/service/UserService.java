@@ -23,27 +23,26 @@ public class UserService implements IUserService {
 	private ILoginDao<Login> loginDao = new LoginDao();
 	private static final Logger log = LogManager.getLogger(UserService.class.getName());
 
+	@Override
+	public User getUserById(long id) {
+		User u = null;
+		try {
+			u = userDao.readEntity(id);
+		} catch (SQLException e) {
 
-		@Override
-		public User getUserById(long id) {
-			User u = null;
-			try {
-				u = userDao.readEntity(id);
-			} catch (SQLException e) {
-
-				log.error(e.getMessage());
-			}
-			try {
-				u.setAddressId(addressDao.getAddressById(id));
-			} catch (SQLException e) {
-				log.error(e.getMessage());
-			}
-			try {
-				u.setLoginId(loginDao.getLoginById(id));
-			} catch (SQLException e) {
-				log.error(e.getMessage());
-			}
-
-			return u;
+			log.error(e.getMessage());
 		}
+		try {
+			u.setAddressId(addressDao.getAddressById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
+		try {
+			u.setLoginId(loginDao.getLoginById(id));
+		} catch (SQLException e) {
+			log.error(e.getMessage());
+		}
+
+		return u;
+	}
 }

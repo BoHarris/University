@@ -2,17 +2,13 @@ package src.main.java.com.solvd.university.model.connection;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.mysql.jdbc.Driver;
 
 public class ConnectionPool {
 

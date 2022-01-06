@@ -1,7 +1,6 @@
 package src.main.java.com.solvd.university.service;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -12,8 +11,9 @@ import src.main.java.com.solvd.university.DAO.mysqlimpl.AddressDao;
 import src.main.java.com.solvd.university.DAO.mysqlimpl.CityDao;
 import src.main.java.com.solvd.university.model.address.Address;
 import src.main.java.com.solvd.university.model.address.City;
-import src.main.java.com.solvd.university.model.address.Continent;
 import src.main.java.com.solvd.university.service.interfaces.IAddressService;
+
+
 
 public class AddressService implements IAddressService {
 	private IAddressDao<Address> addressDao = new AddressDao();

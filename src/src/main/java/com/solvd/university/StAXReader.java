@@ -15,7 +15,8 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-public class StAXHandler {
+public class StAXReader {
+
 	public StringBuffer processXMLFile(File xMLFile)
 			throws FileNotFoundException, XMLStreamException, FactoryConfigurationError {
 		XMLEvent xMLEvent = null;
