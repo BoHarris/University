@@ -1,0 +1,275 @@
+
+-- -----------------------------------------------------
+-- Big Join 
+-- -----------------------------------------------------
+select * 
+from Address a
+left join City c
+on c.id = a.city_id;
+
+select *
+from User u
+left join Address a
+on a.id = u.address_id
+left join Login l
+on  l.id =  u.login_id;
+
+select *
+from University un
+left join Address a
+on a.id = un.address_id;
+
+select *
+from City c
+left join State s
+on s.id = c.state_id;
+
+select *
+from State s
+left join Country c
+on c.id = s.country_id;
+
+select *
+from Department d
+left join University un
+on un.id = d.university_id;
+
+select *
+from Undergraduate ug
+left join  User u
+on u.id = ug.user_id
+left join Course cs
+on cs.id = ug.course_id;
+
+select *
+from Grade g
+left join Undergraduate ug
+on ug.id = g.undergraduate_id;
+
+select *
+from Instructor i
+left join Credentials cd
+on i.id = i.credentials_id
+left join Department d
+on i.id = i.department_id
+left join Position p
+on i.id = i.position_id;
+
+Select *
+From Course cs
+left join Course_Material cm
+on cs.id = cs.course_material_id
+left join Prerequisite pr
+on cs.id = cs.prerequisite_id
+left join Department d
+on cs.id = cs.department_id
+left join Term t
+on cs.id = cs.term_id
+left join Instructor i
+on cs.id = cs.instructor_id;
+
+select *
+from State s
+left join Country c
+on s.id = s.country_id;
+
+select *
+from Country cun
+left join Continent con
+on cun.id = cun.continent_id;
+
+-- -----------------------------------------------------
+-- Insert into database 
+-- -----------------------------------------------------
+INSERT INTO City (name, zipcode)
+VALUES 
+    ('Hollywood', 33024),
+    ('Fort Lauderdale', 33311),
+	('Hollywood', 33023),
+	('Hialeah', 33012),
+	('Hollywood', 33025),
+	('West Palm Beach',	33411),
+	('Tampa', 33647),
+	('Port St. Lucie', 34953),
+	('Winter Garden', 34787),
+	('Orlando',32828);    
+Select * from City;
+
+INSERT INTO Address (building_number, street_name,city_id)
+VALUES 	
+    (1313, '1st street',1),
+    (1616, '2nd Street',2 ),
+	(123, 'Main Street',3),
+	(34, 'Sand Avenue',4),
+	(678,'Rock Road',5),
+	(987,'Grass Lane',6),
+	(654, 'wood Terrace',7),
+	(321, 'Water Way',8),
+	(100, 'Glass ParkWay',9),
+	(3652,'Boulder Place',10);
+    
+INSERT INTO Login (name, password)
+VALUES 	
+    ("Armando.Frey", 'password'),
+    ('Meadow.Anderson', 'password' ),
+	('Xavier.Fremch', 'password'),
+	('Franco.Robertson', 'password'),
+	('Phillip.Pratt','password'),
+	('Zion.Arellano','password'),
+	('Desiree.Lui', 'password'),
+	('Bryson.Meyers', 'password'),
+	('Emilee.Reed', 'password');
+
+INSERT INTO User ( email, first_name, middle_name, last_name, home_phone, cell_phone, work_phone, address_id, login_id)
+VALUES 	
+    ('Armando.Frey@PersonalEmail.com', ' Armando', 'Micheal', 'Frey','(746) 261-5624',
+'(785) 527-1487','(785) 527-1487', 2, 1),
+	 ('Meadow.Anderson@PersonalEmail.com', ' Meadow' , 'Sara', 'Anderson', '(513) 740-4783',
+'(837) 706-4761','(785) 527-1487',2,2),												 
+      ('Xavier.Fremch@PersonalEmail.com', 'Xavier', 'Thomas','French', '(616) 616-4699',
+'(713) 648-3781','(785) 527-1487',3,3),                                      
+	 ('Franco.Robertson@PersonalEmail.com', 'Franco','Charles', 'Roberson',	'(655) 501-6637',
+'(660) 838-1932','(785) 527-1487',4,4),											
+	 ('Phillip.Pratt@PersonalEmail.com', 'Philip','Peter' ,'Pratt', '(452) 288-8069',
+'(884) 878-1918','(785) 527-1487',5,5),											
+	 ('Zion.Arellano@PersonalEmail.com',  'Zion', 'Elliot', 'Arellano',	'(670) 531-4425',
+'(654) 966-1695','(785) 527-1487',6,6),											 
+	 ('Desiree.Lui@PersonalEmail.com',  'Desiree','Sarah', 'Liu','(942) 622-2466',
+'(373) 868-2394','(785) 527-1487',7,7),												
+	 ('Bryson.Meyers@PersonalEmail.com', 'Bryson','Robert', 'Meyers','(985) 264-6381',
+'(793) 918-1047','(785) 527-1487',8,8),												
+	 ('Emilee.Reed@PersonalEmail.com', 'Emilee','Annabell', 'Reed',	'(653) 970-9908',
+'(606) 936-2688','(785) 527-1487',9,9);	
+										 
+INSERT INTO University (name, phone_number, address_id)
+VALUES 	('University of South Florida', '(607)658-9865', 10);
+
+INSERT INTO Department(name, university_id)
+VALUES ('Information Technology', 1);
+
+
+
+
+
+-- -----------------------------------------------------
+-- Delete from database 
+-- -----------------------------------------------------
+DELETE from Department
+WHERE id = 1;
+DELETE from User
+WHERE id = 4;
+DELETE from User
+WHERE address_id = 3;
+DELETE from User
+WHERE address_id = 5;
+DELETE from User
+WHERE login_id = 8;
+DELETE from User
+WHERE login_id = 1;
+DELETE from Address
+WHERE city_id = 5;
+DELETE from City
+WHERE id = 5;
+DELETE from University
+WHERE id = 1;
+DELETE from User
+WHERE login_id = 'password';
+
+-- -----------------------------------------------------
+-- Update from database 
+-- -----------------------------------------------------
+UPDATE Login
+SET password = '1'
+WHERE id = 1;
+UPDATE Login
+SET password = '2'
+WHERE id = 2;
+UPDATE Login
+SET password = '3'
+WHERE id = 3;
+UPDATE Login
+SET password = '4'
+WHERE id = 4;
+UPDATE Login
+SET password = '5'
+WHERE id = 5;
+UPDATE Login
+SET password = '6'
+WHERE id = 6;
+UPDATE Login
+SET password = '7'
+WHERE id = 7;
+UPDATE Login
+SET password = '8'
+WHERE id = 8;
+UPDATE Login
+SET password = '9'
+WHERE id = 9;
+UPDATE User
+SET first_name = 'Abe'
+WHERE id = 6;
+
+SELECT * FROM University.Address;
+SELECT * FROM University.City;
+SELECT * FROM University.State;
+SELECT * FROM University.Country;
+SELECT * FROM University.Continent;
+SELECT * FROM University.User;
+SELECT * FROM University.Login;
+
+SELECT * FROM University.Address
+GROUP BY id;
+
+SELECT * FROM University.City
+GROUP BY id;
+
+SELECT * FROM University.State
+GROUP BY id;
+
+SELECT * FROM University.Country
+GROUP BY id;
+
+SELECT * FROM University.Continent
+GROUP BY id;
+
+SELECT * FROM University.User
+GROUP BY id;
+
+SELECT * FROM University.Login
+GROUP BY id;
+
+
+
+SELECT * FROM University.Address
+GROUP BY id
+HAVING COUNT(id) >= 7;
+
+SELECT * FROM University.City
+GROUP BY id
+HAVING COUNT(id) >= 6;
+
+SELECT * FROM University.State
+GROUP BY id
+HAVING COUNT(id) >= 5;
+
+SELECT * FROM University.Country
+GROUP BY id
+HAVING COUNT(id) >= 4;
+
+SELECT * FROM University.Continent
+GROUP BY id
+HAVING COUNT(id) >= 3 
+ORDER BY COUNT(Id) DESC;
+
+SELECT * FROM University.User
+GROUP BY id
+HAVING COUNT(id) >= 2
+ORDER BY COUNT(Id) DESC;
+
+SELECT * FROM University.Login
+GROUP BY id
+HAVING COUNT (id) >= 1;
+
+SELECT * FROM University.Grade
+group by id
+HAVING AVG (grade) >= 800;
