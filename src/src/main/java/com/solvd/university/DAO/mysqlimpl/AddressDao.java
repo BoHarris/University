@@ -79,7 +79,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 		try {
 
 			while (resultSet.next()) {
-				long id = resultSet.getLong(1);
+				Long id = resultSet.getLong(1);
 				int buildingNumber = resultSet.getInt(2);
 				String streetName = resultSet.getString(3);
 				Long cityId = resultSet.getLong(4);

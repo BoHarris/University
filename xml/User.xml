@@ -1,1 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><user><addressId>1</addressId><cPhone>333-333-3333</cPhone><dateOfBirth>08/19/1970</dateOfBirth><email>Bob.SMith@Company.com</email><fName>Bob</fName><hPhone>222-222-2222</hPhone><lName>Smith</lName><loginId>1</loginId><mName>Michael</mName><wPhone>444-444-4444</wPhone></user>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user id="2">
+	<email>Bob.SMith@Company.com</email>
+	<fName>Bob</fName>
+	<mName>Michael</mName>
+	<lName>Smith</lName>
+	<dateOfBirth>08/19/1970</dateOfBirth>
+	<hPhone>222-222-2222</hPhone>
+	<cPhone>333-333-3333</cPhone>
+	<wPhone>444-444-4444</wPhone>
+	<addressId>1</addressId>
+	<loginId>1</loginId>
+</user>

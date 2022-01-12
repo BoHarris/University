@@ -138,15 +138,28 @@ public class Test {
 		UserDao userDao = new UserDao();
 		User user = new User("Bob.SMith@Company.com", "Bob", "Michael", "Smith", birthDate, "222-222-2222",
 				"333-333-3333", "444-444-4444", address.getId(), login.getId());
+
 		/*
 		 * try { userDao.createEntity(user); } catch (SQLException e) {
 		 * log.error(e.getMessage()); }
 		 */
-		try {
-			userDao.readEntity(1);
+
+		try {/* read and get User ID making id available for use for foreign keys */
+			userDao.readEntity(2);
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
+
+		user.setId(userDao.getUserId());
+
+		System.out.println("UserDAO ID OUTPUT: " + userDao.getUserId() + " " + "<=============<<<");
+
+		System.out.println("User ID OUTPUT: " + user.getId() + " " + "<=============<<<");
+		System.out.println("Continent OUTPUT: " + continent.getId() + " " + "<=============<<<");
+		System.out.println("State OUTPUT: " + state.getId() + " " + "<=============<<<");
+		System.out.println("Country OUTPUT: " + country.getId() + " " + "<=============<<<");
+		System.out.println("City OUTPUT: " + city.getId() + " " + "<=============<<<");
+		System.out.println("Login OUTPUT: " + login.getId() + " " + "<=============<<<");
 
 		try {
 			JAXBContext jc = JAXBContext.newInstance(User.class);
@@ -240,5 +253,6 @@ public class Test {
 		 * transformer.transform(new StreamSource(new StringReader(rawXML)),
 		 * streamResult); return streamResult.getWriter().toString(); }
 		 */
+
 	}
 }

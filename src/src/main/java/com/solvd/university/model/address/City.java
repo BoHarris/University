@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 @XmlRootElement(name = "city")
+@XmlType(propOrder = { "name", "zipCode", "stateId" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class City {
 	private Long id;

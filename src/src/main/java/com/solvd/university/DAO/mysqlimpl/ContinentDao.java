@@ -79,7 +79,9 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 			while (resultSet.next()) {
 				Long id = resultSet.getLong(1);
 				String name = resultSet.getString(2);
+				
 				continentId = continent.setId(id);
+				
 				continent.setName(name);
 				log.debug(id + " " + name);
 

@@ -5,8 +5,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "user")
+@XmlType(propOrder = { "name", "password" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Login {
 	private Long id;

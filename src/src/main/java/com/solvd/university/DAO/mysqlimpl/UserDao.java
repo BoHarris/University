@@ -18,12 +18,11 @@ import src.main.java.com.solvd.university.model.connection.ConnectionPool;
 public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 
 	private static final Logger log = LogManager.getLogger(UserDao.class);
-	private static final String GET_USERS_BY_ID = "Select * from User where id=?";
+	private static final String GET_USER_BY_ID = "Select * from User where id=?";
 	private static final String CREATE_USER = "Insert into User"
 			+ " ( email, first_name, middle_name, last_name, date_of_birth, home_phone, cell_phone, work_phone,address_id,login_id) VALUES (?, ?, ?, ?, ?,?,?,?,? ,?)";
 	private static final String UPDATE_USER = "Update User set last_name = ? where first_name = ?";
 	private static final String DELETE_USER = "Delete from User where id = ?";
-	private static final String GET_USER_BY_ID = "Select * from User where id=?";
 
 	private Long userId;
 
@@ -70,7 +69,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		User user = null;
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_USERS_BY_ID);
+			statement = connection.prepareStatement(GET_USER_BY_ID);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			resultSetToUser(resultSet);
@@ -88,13 +87,14 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		User user = new User();
 
 		try {
+
 			while (resultSet.next()) {
 				Long id = resultSet.getLong(1);
 				String email = resultSet.getString(2);
 				String firstName = resultSet.getString(3);
 				String middleName = resultSet.getString(4);
 				String lastName = resultSet.getString(5);
-				Date dateOfBith = resultSet.getDate(6);
+				Date dateOfBirth = resultSet.getDate(6);
 				String homePhone = resultSet.getString(7);
 				String cellPhone = resultSet.getString(8);
 				String workPhone = resultSet.getString(9);
@@ -102,11 +102,13 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				Long loginId = resultSet.getLong(11);
 
 				userId = setUserId(user.setId(id));
+				
 
+				user.setEmail(email);
 				user.setFirstName(firstName);
 				user.setMiddleName(middleName);
 				user.setLastName(lastName);
-				user.setDateOfBirth(dateOfBith);
+				user.setDateOfBirth(dateOfBirth);
 				user.setHomePhone(homePhone);
 				user.setCellPhone(cellPhone);
 				user.setWorkPhone(workPhone);
@@ -114,18 +116,19 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				user.setLoginId(loginId);
 
 				id = user.getId();
+				email = user.getEmail();
 				firstName = user.getFirstName();
 				middleName = user.getMiddleName();
 				lastName = user.getLastName();
-				dateOfBith = user.getDateOfBirth();
+				dateOfBirth = user.getDateOfBirth();
 				homePhone = user.getHomePhone();
 				cellPhone = user.getCellPhone();
 				workPhone = user.getWorkPhone();
 				addressId = user.getAddressId();
 				loginId = user.getLoginId();
-				log.debug(id + " " + firstName + " " + " " + middleName + " " + " " + lastName + " " + " " + dateOfBith
-						+ " " + " " + email + " " + " " + homePhone + " " + " " + cellPhone + " " + " " + workPhone);
 
+				log.debug(id + " " + firstName + " " + " " + middleName + " " + " " + lastName + " " + " " + dateOfBirth
+						+ " " + " " + email + " " + " " + homePhone + " " + " " + cellPhone + " " + " " + workPhone);
 				return user;
 			}
 

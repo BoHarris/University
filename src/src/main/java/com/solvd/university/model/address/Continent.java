@@ -7,10 +7,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 @XmlRootElement(name = "continent")
+@XmlType(propOrder = { "id", "name", "countries" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Continent {
 	private long id;

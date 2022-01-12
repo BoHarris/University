@@ -1,20 +1,22 @@
 package src.main.java.com.solvd.university.model;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import src.main.java.com.solvd.university.DateAdapter;
-import src.main.java.com.solvd.university.model.address.Address;
 
 @XmlRootElement(name = "user")
+@XmlType(propOrder = {  "email", "firstName", "middleName", "lastName", "dateOfBirth", "homePhone", "cellPhone",
+		"workPhone", "addressId", "loginId" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
+
 public class User {
 
 	private Long id;
@@ -26,10 +28,8 @@ public class User {
 	private String homePhone;
 	private String cellPhone;
 	private String workPhone;
-	private long addressId;
-	private long loginId;
-	private List<Address> addresses;
-	private List<Login> logins;
+	private Long addressId;
+	private Long loginId;
 
 	public User() {
 
@@ -37,7 +37,7 @@ public class User {
 
 	public User(String email, String firstName, String middleName, String lastName, Date dateOfBirth, String homePhone,
 			String cellPhone, String workPhone, long addressId, long loginId) {
-		super();
+
 		this.email = email;
 		this.firstName = firstName;
 		this.middleName = middleName;
@@ -46,8 +46,6 @@ public class User {
 		this.homePhone = homePhone;
 		this.cellPhone = cellPhone;
 		this.workPhone = workPhone;
-		this.addresses = addresses;
-		this.logins = logins;
 		this.addressId = addressId;
 		this.loginId = loginId;
 	}
@@ -131,24 +129,6 @@ public class User {
 
 	public void setWorkPhone(String workPhone) {
 		this.workPhone = workPhone;
-	}
-
-	@XmlElement(name = "address")
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	public void setAddressId(List<Address> addresses) {
-		this.addresses = addresses;
-	}
-
-	@XmlElement(name = "login")
-	public List<Login> getLogins() {
-		return logins;
-	}
-
-	public void setLoginId(List<Login> logins) {
-		this.logins = logins;
 	}
 
 	@XmlElement(name = "addressId")

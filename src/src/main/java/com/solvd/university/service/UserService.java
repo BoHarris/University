@@ -19,8 +19,6 @@ import src.main.java.com.solvd.university.service.interfaces.IUserService;
 public class UserService implements IUserService {
 
 	private IUserDao<User> userDao = new UserDao();
-	private IAddressDao<Address> addressDao = new AddressDao();
-	private ILoginDao<Login> loginDao = new LoginDao();
 	private static final Logger log = LogManager.getLogger(UserService.class.getName());
 
 	@Override
@@ -30,16 +28,6 @@ public class UserService implements IUserService {
 			u = userDao.readEntity(id);
 		} catch (SQLException e) {
 
-			log.error(e.getMessage());
-		}
-		try {
-			u.setAddressId(addressDao.getAddressById(id));
-		} catch (SQLException e) {
-			log.error(e.getMessage());
-		}
-		try {
-			u.setLoginId(loginDao.getLoginById(id));
-		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
 
