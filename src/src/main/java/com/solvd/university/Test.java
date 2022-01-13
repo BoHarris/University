@@ -152,14 +152,7 @@ public class Test {
 
 		user.setId(userDao.getUserId());
 
-		System.out.println("UserDAO ID OUTPUT: " + userDao.getUserId() + " " + "<=============<<<");
 
-		System.out.println("User ID OUTPUT: " + user.getId() + " " + "<=============<<<");
-		System.out.println("Continent OUTPUT: " + continent.getId() + " " + "<=============<<<");
-		System.out.println("State OUTPUT: " + state.getId() + " " + "<=============<<<");
-		System.out.println("Country OUTPUT: " + country.getId() + " " + "<=============<<<");
-		System.out.println("City OUTPUT: " + city.getId() + " " + "<=============<<<");
-		System.out.println("Login OUTPUT: " + login.getId() + " " + "<=============<<<");
 
 		try {
 			JAXBContext jc = JAXBContext.newInstance(User.class);
@@ -228,8 +221,13 @@ public class Test {
 		}
 
 		STaXWriter.WriteFile();
+		
 
-		/*
+		/* format xml for readability
+		 * 
+		 * 
+		 * 
+		 * 
 		 * try
 		 * 
 		 * {
