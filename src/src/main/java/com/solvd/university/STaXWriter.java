@@ -16,7 +16,7 @@ public class STaXWriter {
 		try {
 			XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newFactory();
 			XMLStreamWriter xmlStreamWriter = xmlOutputFactory
-					.createXMLStreamWriter(new FileOutputStream("xml/UserSTAX.xml"));
+					.createXMLStreamWriter(new FileOutputStream("src/src/main/resources/UserSTAX.xml"));
 			xmlStreamWriter.writeStartDocument("1.0");
 			// create user element
 			xmlStreamWriter.writeStartElement("user");

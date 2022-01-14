@@ -21,15 +21,6 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 	private static final String CREATE_CONTINENT = "Insert into Continent" + " (id, name) VALUES ( ?, ?)";
 	private static final String UPDATE_CONTINENT = "Update Continent set name = ? where id = ?";
 	private static final String DELETE_CONTINENT = "Delete from Address where id = ?";
-	private Long continentId;
-
-	public Long getContinentId() {
-		return continentId;
-	}
-
-	public void setContinentId(Long continentId) {
-		this.continentId = continentId;
-	}
 
 	@Override
 	public void createEntity(Continent entity) throws SQLException {
@@ -79,9 +70,9 @@ public class ContinentDao extends AbstractMySQLDao implements IContinentDao<Cont
 			while (resultSet.next()) {
 				Long id = resultSet.getLong(1);
 				String name = resultSet.getString(2);
-				
-				continentId = continent.setId(id);
-				
+
+				continent.setId(resultSet.getLong(1));
+
 				continent.setName(name);
 				log.debug(id + " " + name);
 

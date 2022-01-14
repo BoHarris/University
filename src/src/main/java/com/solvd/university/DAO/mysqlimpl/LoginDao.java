@@ -21,15 +21,6 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 	private static final String CREATE_LOGIN = "Insert into Login" + " ( name,password ) VALUES (?,?)";
 	private static final String UPDATE_LOGIN = "Update Login set name = ? where name = ?";
 	private static final String DELETE_LOGIN = "Delete from Address where id = ?";
-	private Long loginId;
-
-	public Long getLoginId() {
-		return loginId;
-	}
-
-	public Long setLoginId(Long loginId) {
-		return this.loginId = loginId;
-	}
 
 	@Override
 	public void createEntity(Login entity) throws SQLException {
@@ -81,8 +72,7 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 				String name = resultSet.getString(2);
 				String password = resultSet.getString(3);
 
-				loginId = setLoginId(login.setId(id));
-
+				login.setId(resultSet.getLong(1));
 				login.setName(name);
 				login.setPassword(password);
 

@@ -21,15 +21,6 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 			+ " ( building_number, street_name, city_id) VALUES (?,?,?)";
 	private static final String UPDATE_ADDRESS = "Update Address set building_number = ? where street_name = ?";
 	private static final String DELETE_ADDRESS = "Delete from Address where id = ?";
-	private Long addressId;
-
-	public Long getAddressId() {
-		return addressId;
-	}
-
-	public Long setAddressId(Long addressId) {
-		return this.addressId = addressId;
-	}
 
 	@Override
 	public void createEntity(Address entity) throws SQLException {
@@ -84,7 +75,7 @@ public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address>
 				String streetName = resultSet.getString(3);
 				Long cityId = resultSet.getLong(4);
 
-				addressId = setAddressId(address.setId(id));
+				address.setId(resultSet.getLong(1));
 				address.setBuildingNumber(buildingNumber);
 				address.setStreetName(streetName);
 				address.setCityId(cityId);

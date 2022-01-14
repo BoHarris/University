@@ -21,15 +21,6 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 	private static final String CREATE_CITY = "Insert into City" + " ( name, zipcode, state_id) VALUES (?,?,?)";
 	private static final String UPDATE_CITY = "Update City set zipcode = ? where name = ?";
 	private static final String DELETE_CITY = "Delete from Address where id = ?";
-	private Long cityId;
-
-	public Long getCityId() {
-		return cityId;
-	}
-
-	public Long setCityId(Long cityId) {
-		return this.cityId = cityId;
-	}
 
 	@Override
 	public void createEntity(City entity) throws SQLException {
@@ -83,8 +74,7 @@ public class CityDao extends AbstractMySQLDao implements ICityDao<City> {
 				String zipCode = resultSet.getString(3);
 				Long stateId = resultSet.getLong(4);
 
-				cityId = setCityId(city.setId(id));
-
+				city.setId(resultSet.getLong(1));
 				city.setName(name);
 				city.setZipCode(zipCode);
 				city.setStateId(stateId);

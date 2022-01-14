@@ -29,13 +29,13 @@ import src.main.java.com.solvd.university.model.address.State;
 
 public class Test {
 	private static final Logger log = LogManager.getLogger(Test.class.getName());
-	private static final String USER_XML_FILE = "xml/User.xml";
-	private static final String LOGIN_XML_FILE = "xml/Login.xml";
-	private static final String ADDRESS_XML_FILE = "xml/Address.xml";
-	private static final String CITY_XML_FILE = "xml/City.xml";
-	private static final String STATE_XML_FILE = "xml/State.xml";
-	private static final String COUNTRY_XML_FILE = "xml/Country.xml";
-	private static final String CONTINENT_XML_FILE = "xml/Continent.xml";
+	private static final String USER_XML_FILE = "src/src/main/resources/User.xml";
+	private static final String LOGIN_XML_FILE = "src/src/main/resources//Login.xml";
+	private static final String ADDRESS_XML_FILE = "src/src/main/resources/Address.xml";
+	private static final String CITY_XML_FILE = "src/src/main/resources/City.xml";
+	private static final String STATE_XML_FILE = "src/src/main/resources/State.xml";
+	private static final String COUNTRY_XML_FILE = "src/src/main/resources/Country.xml";
+	private static final String CONTINENT_XML_FILE = "src/src/main/resources/Continent.xml";
 
 	public static void main(String[] args) {
 
@@ -52,7 +52,7 @@ public class Test {
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-		continent.setId(continentDao.getContinentId());
+	
 		CountryDao countryDao = new CountryDao();
 		Country country = new Country("United States", "N/A", continent.getId());
 		/*
@@ -66,7 +66,7 @@ public class Test {
 			log.error(e.getMessage());
 
 		}
-		country.setId(countryDao.getCountryId());
+		
 		StateDao stateDao = new StateDao();
 		State state = new State("Florida", country.getId());
 		/*
@@ -83,7 +83,6 @@ public class Test {
 
 		}
 
-		state.setId(stateDao.getStateId());
 		CityDao cityDao = new CityDao();
 		City city = new City("Chrismas", "32709", state.getId());
 
@@ -98,7 +97,7 @@ public class Test {
 
 		}
 
-		city.setId(cityDao.getCityId());
+
 		AddressDao addressDao = new AddressDao();
 		Address address = new Address(1, "Main Street", city.getId());
 		/*
@@ -114,7 +113,7 @@ public class Test {
 			log.error(e.getMessage());
 
 		}
-		address.setId(addressDao.getAddressId());
+
 
 		LoginDao loginDao = new LoginDao();
 		Login login = new Login("Bob.Smith", "SmithBob");
@@ -131,7 +130,7 @@ public class Test {
 			log.error(e.getMessage());
 
 		}
-		login.setId(loginDao.getLoginId());
+
 
 		Date birthDate = Date.valueOf("1970-08-19");
 
@@ -149,8 +148,6 @@ public class Test {
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}
-
-		user.setId(userDao.getUserId());
 
 
 
@@ -221,9 +218,9 @@ public class Test {
 		}
 
 		STaXWriter.WriteFile();
-		
 
-		/* format xml for readability
+		/*
+		 * format xml for readability
 		 * 
 		 * 
 		 * 
@@ -252,5 +249,8 @@ public class Test {
 		 * streamResult); return streamResult.getWriter().toString(); }
 		 */
 
+		Deadlock deadlock = new Deadlock();
+		deadlock.t1.start();
+		deadlock.t2.start();
 	}
 }

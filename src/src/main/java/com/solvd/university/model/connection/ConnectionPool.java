@@ -31,11 +31,10 @@ public class ConnectionPool {
 			synchronized (ConnectionPool.class) {
 				instance = new ConnectionPool();
 				pool = new LinkedBlockingQueue<>();
-				 log.info("Creating Connection Pool");
-
+				log.info("Creating Connection Pool");
 
 				try {
-					InputStream input = new FileInputStream("resources/db.properties");
+					InputStream input = new FileInputStream("src/src/main/resources/db.properties");
 					Properties prop = new Properties();
 					log.info("Retrieving creditntals.");
 					prop.load(input);
@@ -51,7 +50,7 @@ public class ConnectionPool {
 		return instance;
 	}
 
-	public Connection getConnection() throws InterruptedException {
+	public synchronized Connection getConnection() throws InterruptedException {
 		if (existingConnectionsCount < MAX_POOL_CAPACITY) {
 			log.info("No connections pooled. Creating connection.");
 
@@ -71,7 +70,7 @@ public class ConnectionPool {
 		return con;
 	}
 
-	public void releaseConnection(Connection con) {
+	public synchronized void releaseConnection(Connection con) {
 		if (pool.add(con) && pool.size() <= MAX_POOL_CAPACITY)
 			log.info("Connection successfully pooled.");
 		else

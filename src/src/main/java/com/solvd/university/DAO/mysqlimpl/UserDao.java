@@ -24,16 +24,6 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 	private static final String UPDATE_USER = "Update User set last_name = ? where first_name = ?";
 	private static final String DELETE_USER = "Delete from User where id = ?";
 
-	private Long userId;
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public Long setUserId(Long userId) {
-		return this.userId = userId;
-	}
-
 	@Override
 	public void createEntity(User entity) throws SQLException {
 		Connection connection = null;
@@ -101,8 +91,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				Long addressId = resultSet.getLong(10);
 				Long loginId = resultSet.getLong(11);
 
-				userId = setUserId(user.setId(id));
-				
+				user.setId(resultSet.getLong(1));
 
 				user.setEmail(email);
 				user.setFirstName(firstName);

@@ -21,15 +21,6 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 	private static final String CREATE_STATE = "Insert into State" + " ( name,country_id ) VALUES (?,?)";
 	private static final String UPDATE_STATE = "Update State set name = ? where name = ?";
 	private static final String DELETE_STATE = "Delete from Address where id = ?";
-	private Long stateId;
-
-	public Long getStateId() {
-		return stateId;
-	}
-
-	public Long setStateId(Long stateId) {
-		return this.stateId = stateId;
-	}
 
 	@Override
 	public void createEntity(State entity) throws SQLException {
@@ -81,14 +72,13 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 				String name = resultSet.getString(2);
 				Long countryId = resultSet.getLong(3);
 
-				stateId = setStateId(state.setId(id));
-
+				state.setId(resultSet.getLong(1));
 				state.setName(name);
 				state.setCountryId(countryId);
 
 				id = state.getId();
 				name = state.getName();
-				log.debug(id + " " + name + " " + " " + stateId);
+				log.debug(id + " " + name + " ");
 				return state;
 			}
 
