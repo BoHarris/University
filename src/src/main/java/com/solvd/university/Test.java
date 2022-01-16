@@ -53,10 +53,13 @@ public class Test {
 
 		ContinentDao continentDao = new ContinentDao();
 		Continent continent = new Continent("North America");
-		/*
-		 * try { continentDao.createEntity(continent); } catch (SQLException e) {
-		 * LOG.error(e.getMessage()); }
-		 */
+
+		try {
+			continentDao.createEntity(continent);
+		} catch (SQLException e) {
+			LOG.error(e.getMessage());
+		}
+
 		/* read and get Continent ID making id available for use for foreign keys */
 		try {
 			continentDao.readEntity(1);
@@ -67,10 +70,13 @@ public class Test {
 		continent.setId(continentDao.getContinentId());
 		CountryDao countryDao = new CountryDao();
 		Country country = new Country("United States", "N/A", continent.getId());
-		/*
-		 * try { countryDao.createEntity(country); } catch (SQLException e) {
-		 * LOG.error(e.getMessage()); }
-		 */
+
+		try {
+			countryDao.createEntity(country);
+		} catch (SQLException e) {
+			LOG.error(e.getMessage());
+		}
+
 		/* read and get country ID making id available for use for foreign keys */
 		try {
 			countryDao.readEntity(1);
@@ -81,10 +87,13 @@ public class Test {
 		country.setId(countryDao.getCountryId());
 		StateDao stateDao = new StateDao();
 		State state = new State("Florida", country.getId());
-		/*
-		 * try { stateDao.createEntity(state); } catch (SQLException e) {
-		 * LOG.error(e.getMessage()); }
-		 */
+
+		try {
+			stateDao.createEntity(state);
+		} catch (SQLException e) {
+			LOG.error(e.getMessage());
+		}
+
 		try {/* read and get State ID making id available for use for foreign keys */
 
 			stateDao.readEntity(1);
@@ -99,10 +108,12 @@ public class Test {
 		CityDao cityDao = new CityDao();
 		City city = new City("Chrismas", "32709", state.getId());
 
-		/*
-		 * try { cityDao.createEntity(city); } catch (SQLException e) {
-		 * LOG.error(e.getMessage()); }
-		 */
+		try {
+			cityDao.createEntity(city);
+		} catch (SQLException e) {
+			LOG.error(e.getMessage());
+		}
+
 		try {/* read and get City ID making id available for use for foreign keys */
 			cityDao.readEntity(1);
 		} catch (SQLException e) {
@@ -113,10 +124,13 @@ public class Test {
 		city.setId(cityDao.getCityId());
 		AddressDao addressDao = new AddressDao();
 		Address address = new Address(1, "Main Street", city.getId());
-		/*
-		 * try { addressDao.createEntity(address); } catch (SQLException e) {
-		 * LOG.error(e.getMessage()); }
-		 */
+
+		try {
+			addressDao.createEntity(address);
+		} catch (SQLException e) {
+			LOG.error(e.getMessage());
+		}
+
 		try {/* read and get Address ID making id available for use for foreign keys */
 
 			addressDao.readEntity(1);
@@ -151,10 +165,11 @@ public class Test {
 		User user = new User("Bob.SMith@Company.com", "Bob", "Michael", "Smith", birthDate, "222-222-2222",
 				"333-333-3333", "444-444-4444", address.getId(), login.getId());
 
-		/*
-		 * try { userDao.createEntity(user); } catch (SQLException e) {
-		 * LOG.error(e.getMessage()); }
-		 */
+		try {
+			userDao.createEntity(user);
+		} catch (SQLException e) {
+			LOG.error(e.getMessage());
+		}
 
 		try {/* read and get User ID making id available for use for foreign keys */
 			userDao.readEntity(2);
@@ -276,9 +291,6 @@ public class Test {
 			om.configOverride(User.class)
 					.setInclude(Value.construct(JsonInclude.Include.NON_NULL, JsonInclude.Include.NON_NULL));
 
-			User u = new User("Bob.SMith@Company.com", "Bob", "Michael", "Smith", birthDate, "222-222-2222",
-					"333-333-3333", "444-444-4444", address.getId(), login.getId());
-
 			om.writeValue(new File(USER_JSON_FILE), user);
 		} catch (IOException e) {
 			LOG.error(e.getMessage());
@@ -287,7 +299,7 @@ public class Test {
 		try {
 			ObjectMapper om = new ObjectMapper();
 
-			String userJson = "{\"dateOfBirth\":\"19/08/1970\",\"id\":\"2\",\"email\":\"Bob.SMith@Company.com\",\"fName\":\"Bob\",\"mName\":\"Michael\",\"lName\":\"Smith\",\"hPhone\":\"222-222-2222\",\"cPhone\":\"333-333-3333\",\"wPhone\":\"444-444-4444\",\"addressId\":\"1\",\"loginId\":\"1\"}";
+			String userJson = "{\"id\":\"2\",\"email\":\"Bob.SMith@Company.com\",\"fName\":\"Bob\",\"mName\":\"Michael\",\"lName\":\"Smith\",\"dateOfBirth\":\"19/08/1970\",\"hPhone\":\"222-222-2222\",\"cPhone\":\"333-333-3333\",\"wPhone\":\"444-444-4444\",\"addressId\":\"1\",\"loginId\":\"1\"}";
 			User Bob = om.readValue(userJson, User.class);
 			LOG.debug("This is JSON Bob " + Bob);
 
@@ -296,6 +308,10 @@ public class Test {
 		Exception e) {
 			LOG.error(e.getMessage());
 		}
+
+		Deadlock deadlock = new Deadlock();
+		deadlock.t1.start();
+		deadlock.t2.start();
 
 	}
 
