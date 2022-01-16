@@ -16,7 +16,7 @@ import src.main.java.com.solvd.university.service.interfaces.IDepartmentService;
 public class DepartmentService implements IDepartmentService {
 	private IDepartmentDao<Department> departmentDao = new DepartmentDao();
 	private IUniversityDao<University> universityDao = new UniversityDao();
-	private static final Logger log = LogManager.getLogger(DepartmentService.class.getName());
+	private static final Logger LOG = LogManager.getLogger(DepartmentService.class.getName());
 
 	@Override
 	public Department getDepartmentById(long id) {
@@ -25,7 +25,7 @@ public class DepartmentService implements IDepartmentService {
 			d = departmentDao.readEntity(id);
 		} catch (SQLException e) {
 
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		d.setUniversitys(universityDao.getUniversityById(id));
 		return d;

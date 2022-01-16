@@ -1,0 +1,13 @@
+{
+  "dateOfBirth" : "19/08/1970",
+  "id" : 2,
+  "email" : "Bob.SMith@Company.com",
+  "fName" : "Bob",
+  "mName" : "Michael",
+  "lName" : "Smith",
+  "hPhone" : "222-222-2222",
+  "cPhone" : "333-333-3333",
+  "wPhone" : "444-444-4444",
+  "addressId" : 1,
+  "loginId" : 1
+}

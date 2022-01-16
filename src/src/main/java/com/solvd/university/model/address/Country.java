@@ -22,7 +22,7 @@ public class Country {
 	private long continentId;
 	private List<State> states;
 
-	private static final Logger log = LogManager.getLogger(Country.class.getName());
+	private static final Logger LOG = LogManager.getLogger(Country.class.getName());
 
 	public Country() {
 
@@ -77,14 +77,14 @@ public class Country {
 		return continentId;
 	}
 
-	public void setContientId(long continentId) {
+	public void setContinentId(Long continentId) {
 		this.continentId = continentId;
 	}
 
 	@Override
 	public String toString() {
 
-		return " Country Name : " + name + " Country Code : " + countryCode + "\n";
+		return " Country Name : " + name + " Country Code : " + countryCode + " Continent  " + continentId + "\n";
 	}
 
 }

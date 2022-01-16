@@ -18,7 +18,6 @@ import src.main.java.com.solvd.university.service.interfaces.IStateService;
 
 public class StateService implements IStateService {
 	private IStateDao<State> stateDao = new StateDao();
-	private ICountryDao<Country> countryDao = new CountryDao();
 	private ICityDao<City> cityDao = new CityDao();
 	private static final Logger log = LogManager.getLogger(StateService.class.getName());
 

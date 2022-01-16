@@ -9,9 +9,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 @XmlRootElement(name = "continent")
 @XmlType(propOrder = { "id", "name", "countries" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
@@ -19,7 +16,6 @@ public class Continent {
 	private long id;
 	private String name;
 	private List<Country> countries;
-	private static final Logger log = LogManager.getLogger(Continent.class.getName());
 
 	public Continent() {
 

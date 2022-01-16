@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -36,7 +37,7 @@ public class ConnectionPool {
 				try {
 					InputStream input = new FileInputStream("src/src/main/resources/db.properties");
 					Properties prop = new Properties();
-					log.info("Retrieving creditntals.");
+					log.info("Retrieving Credientals.");
 					prop.load(input);
 					url = prop.getProperty("url");
 					user = prop.getProperty("username");
@@ -53,13 +54,20 @@ public class ConnectionPool {
 	public synchronized Connection getConnection() throws InterruptedException {
 		if (existingConnectionsCount < MAX_POOL_CAPACITY) {
 			log.info("No connections pooled. Creating connection.");
-
+			Connection con = null;
 			try {
 				existingConnectionsCount++;
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				return DriverManager.getConnection(url, user, password);
 			} catch (Exception e) {
 				log.error(e.getMessage());
+			} finally {
+				if (con != null)
+					try {
+						con.close();
+					} catch (SQLException e) {
+						log.error(e.getMessage());
+					}
 			}
 		}
 

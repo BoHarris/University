@@ -17,12 +17,22 @@ import src.main.java.com.solvd.university.model.connection.ConnectionPool;
 
 public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 
-	private static final Logger log = LogManager.getLogger(UserDao.class);
+	private static final Logger LOG = LogManager.getLogger(UserDao.class);
 	private static final String GET_USER_BY_ID = "Select * from User where id=?";
 	private static final String CREATE_USER = "Insert into User"
-			+ " ( email, first_name, middle_name, last_name, date_of_birth, home_phone, cell_phone, work_phone,address_id,login_id) VALUES (?, ?, ?, ?, ?,?,?,?,? ,?)";
+			+ " ( email, first_name, middle_name, last_name, date_of_birth, home_phone, cell_phone, work_phone,address_id,LOGin_id) VALUES (?, ?, ?, ?, ?,?,?,?,? ,?)";
 	private static final String UPDATE_USER = "Update User set last_name = ? where first_name = ?";
 	private static final String DELETE_USER = "Delete from User where id = ?";
+	private static final String GET_ALL_USERS = "Select * from User";
+	private Long userId;
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public Long setUserId(Long userId) {
+		return this.userId = userId;
+	}
 
 	@Override
 	public void createEntity(User entity) throws SQLException {
@@ -44,7 +54,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 			statement.setLong(10, entity.getLoginId());
 			statement.executeUpdate();
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		statement.close();
 		ConnectionPool.getInstance().releaseConnection(connection);
@@ -64,7 +74,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 			resultSet = statement.executeQuery();
 			resultSetToUser(resultSet);
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			resultSet.close();
 			statement.close();
@@ -89,9 +99,9 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				String cellPhone = resultSet.getString(8);
 				String workPhone = resultSet.getString(9);
 				Long addressId = resultSet.getLong(10);
-				Long loginId = resultSet.getLong(11);
+				Long LoginId = resultSet.getLong(11);
 
-				user.setId(resultSet.getLong(1));
+				userId = setUserId(user.setId(id));
 
 				user.setEmail(email);
 				user.setFirstName(firstName);
@@ -102,7 +112,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				user.setCellPhone(cellPhone);
 				user.setWorkPhone(workPhone);
 				user.setAddressId(addressId);
-				user.setLoginId(loginId);
+				user.setLoginId(LoginId);
 
 				id = user.getId();
 				email = user.getEmail();
@@ -114,15 +124,15 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 				cellPhone = user.getCellPhone();
 				workPhone = user.getWorkPhone();
 				addressId = user.getAddressId();
-				loginId = user.getLoginId();
+				LoginId = user.getLoginId();
 
-				log.debug(id + " " + firstName + " " + " " + middleName + " " + " " + lastName + " " + " " + dateOfBirth
+				LOG.debug(id + " " + firstName + " " + " " + middleName + " " + " " + lastName + " " + " " + dateOfBirth
 						+ " " + " " + email + " " + " " + homePhone + " " + " " + cellPhone + " " + " " + workPhone);
 				return user;
 			}
 
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		return null;
 	}
@@ -139,7 +149,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
@@ -158,7 +168,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
@@ -167,7 +177,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 	}
 
 	@Override
-	public List<User> getUserById(long id) throws SQLException {
+	public List<User> getUsers() throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -175,20 +185,27 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		List<User> users = new ArrayList<>();
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_USER_BY_ID);
-			statement.setLong(1, id);
+			statement = connection.prepareStatement(GET_ALL_USERS);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				User user = new User();
 				user.setId(resultSet.getLong("id"));
-				user.setFirstName(resultSet.getString("first_name"));
-				user.setLastName(resultSet.getString("last_name"));
+				user.setEmail(resultSet.getString("email"));
+				user.setFirstName(resultSet.getString("firstName"));
+				user.setMiddleName(resultSet.getString("middleName"));
+				user.setLastName(resultSet.getString("lastName"));
+				user.setDateOfBirth(resultSet.getDate("dateOfBirth"));
+				user.setHomePhone(resultSet.getString("homePhone"));
+				user.setCellPhone(resultSet.getString("cellPhone"));
+				user.setWorkPhone(resultSet.getString("workPhone"));
+				user.setAddressId(resultSet.getLong("addressId"));
+				user.setLoginId(resultSet.getLong("LoginId"));
 				users.add(user);
 
 			}
-			log.info(users);
+			LOG.info(users);
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			resultSet.close();
 			statement.close();
@@ -196,6 +213,12 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		}
 		return users;
 
+	}
+
+	@Override
+	public List<User> getUserById(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

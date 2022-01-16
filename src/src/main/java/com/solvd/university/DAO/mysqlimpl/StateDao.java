@@ -16,11 +16,21 @@ import src.main.java.com.solvd.university.model.connection.ConnectionPool;
 
 public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 
-	private static final Logger log = LogManager.getLogger(StateDao.class);
+	private static final Logger LOG = LogManager.getLogger(StateDao.class);
 	private static final String GET_STATE_BY_ID = "Select * from State where id=?";
 	private static final String CREATE_STATE = "Insert into State" + " ( name,country_id ) VALUES (?,?)";
 	private static final String UPDATE_STATE = "Update State set name = ? where name = ?";
 	private static final String DELETE_STATE = "Delete from Address where id = ?";
+	private static final String GET_ALL_STATES = "Select * from State";
+	private Long stateId;
+
+	public Long getStateId() {
+		return stateId;
+	}
+
+	public Long setStateId(Long stateId) {
+		return this.stateId = stateId;
+	}
 
 	@Override
 	public void createEntity(State entity) throws SQLException {
@@ -34,7 +44,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 			statement.setLong(2, entity.getCountryId());
 			statement.executeUpdate();
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		statement.close();
 		ConnectionPool.getInstance().releaseConnection(connection);
@@ -54,7 +64,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 			resultSet = statement.executeQuery();
 			resultSetToState(resultSet);
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			resultSet.close();
 			statement.close();
@@ -72,18 +82,19 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 				String name = resultSet.getString(2);
 				Long countryId = resultSet.getLong(3);
 
-				state.setId(resultSet.getLong(1));
+				stateId = setStateId(state.setId(id));
+
 				state.setName(name);
 				state.setCountryId(countryId);
 
 				id = state.getId();
 				name = state.getName();
-				log.debug(id + " " + name + " ");
+				LOG.debug(id + " " + name + " " + " " + stateId);
 				return state;
 			}
 
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		return null;
 	}
@@ -99,7 +110,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
@@ -118,7 +129,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
@@ -127,7 +138,7 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 	}
 
 	@Override
-	public List<State> getStateById(long id) throws SQLException {
+	public List<State> getStates() throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -135,18 +146,18 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 		List<State> states = new ArrayList<>();
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_STATE_BY_ID);
-			statement.setLong(1, id);
+			statement = connection.prepareStatement(GET_ALL_STATES);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				State State = new State();
-				State.setId(resultSet.getLong("id"));
-				State.setName(resultSet.getString("name"));
-
+				State state = new State();
+				state.setId(resultSet.getLong("id"));
+				state.setName(resultSet.getString("name"));
+				state.setCountryId(resultSet.getLong("countryId"));
+				states.add(state);
 			}
-			log.info(states);
+			LOG.info(states);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		} finally {
 			resultSet.close();
 			statement.close();
@@ -154,5 +165,11 @@ public class StateDao extends AbstractMySQLDao implements IStateDao<State> {
 		}
 		return states;
 
+	}
+
+	@Override
+	public List<State> getStateById(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

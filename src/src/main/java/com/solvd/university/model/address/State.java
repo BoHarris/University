@@ -13,7 +13,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 @XmlRootElement(name = "state")
-@XmlType(propOrder = {"id", "name", "countryId", "cities" })
+@XmlType(propOrder = { "id", "name", "countryId", "cities" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class State {
 	private long id;

@@ -1,5 +1,7 @@
 package src.main.java.com.solvd.university.model.address;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -8,13 +10,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "city")
-@XmlType(propOrder = { "name", "zipCode", "stateId" })
+@XmlType(propOrder = { "name", "zipCode", "stateId", "addresses" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class City {
-	private Long id;
+	private long id;
 	private String name;
 	private String zipCode;
 	private long stateId;
+	private List<Address> addresses;
 
 	public City() {
 
@@ -27,11 +30,11 @@ public class City {
 	}
 
 	@XmlAttribute(name = "id")
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public Long setId(Long id) {
+	public Long setId(long id) {
 		return this.id = id;
 	}
 
@@ -60,5 +63,14 @@ public class City {
 
 	public void setStateId(long stateId) {
 		this.stateId = stateId;
+	}
+
+	@XmlElement(name = "addresses")
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 }

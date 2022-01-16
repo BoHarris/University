@@ -14,7 +14,7 @@ import src.main.java.com.solvd.university.model.address.Address;
 import src.main.java.com.solvd.university.service.interfaces.IUniversityService;
 
 public class UniversityService implements IUniversityService {
-	private static final Logger log = LogManager.getLogger(UniversityService.class.getName());
+	private static final Logger LOG = LogManager.getLogger(UniversityService.class.getName());
 	private IUniversityDao<University> universityDao = new UniversityDao();
 	private IAddressDao<Address> addressDao = new AddressDao();
 
@@ -24,12 +24,12 @@ public class UniversityService implements IUniversityService {
 		try {
 			u = universityDao.readEntity(id);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		try {
 			u.setAddresses(addressDao.getAddressById(u.getId()));
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 
 		return u;

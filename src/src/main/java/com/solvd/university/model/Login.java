@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder = { "name", "password" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Login {
-	private Long id;
+	private long id;
 	private String name;
 	private String password;
 
@@ -21,17 +21,16 @@ public class Login {
 
 	public Login(String name, String password) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.password = password;
 	}
 
 	@XmlAttribute(name = "id")
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public Long setId(Long id) {
+	public Long setId(long id) {
 		return this.id = id;
 	}
 

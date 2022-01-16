@@ -18,5 +18,8 @@
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jar files for jaxb/jaxb-api-2.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jar files for jaxb/jaxb-core-2.3.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jar files for jaxb/jaxb-impl-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/Jackson/jackson-databind-2.13.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/Jackson/jackson-annotations-2.13.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/Jackson/jackson-core-2.13.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

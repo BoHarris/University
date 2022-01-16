@@ -10,10 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import src.main.java.com.solvd.university.DateAdapter;
 
 @XmlRootElement(name = "user")
-@XmlType(propOrder = {  "email", "firstName", "middleName", "lastName", "dateOfBirth", "homePhone", "cellPhone",
+@XmlType(propOrder = { "email", "firstName", "middleName", "lastName", "dateOfBirth", "homePhone", "cellPhone",
 		"workPhone", "addressId", "loginId" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 
@@ -51,6 +54,7 @@ public class User {
 	}
 
 	@XmlAttribute(name = "id")
+	@JsonProperty("id")
 	public Long getId() {
 		return id;
 	}
@@ -60,6 +64,7 @@ public class User {
 	}
 
 	@XmlElement(name = "email")
+	@JsonProperty("email")
 	public String getEmail() {
 		return email;
 	}
@@ -69,6 +74,7 @@ public class User {
 	}
 
 	@XmlElement(name = "fName")
+	@JsonProperty("fName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -78,6 +84,7 @@ public class User {
 	}
 
 	@XmlElement(name = "mName")
+	@JsonProperty("mName")
 	public String getMiddleName() {
 		return middleName;
 	}
@@ -87,6 +94,7 @@ public class User {
 	}
 
 	@XmlElement(name = "lName")
+	@JsonProperty("lName")
 	public String getLastName() {
 		return lastName;
 	}
@@ -96,6 +104,7 @@ public class User {
 	}
 
 	@XmlJavaTypeAdapter(DateAdapter.class)
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	public java.sql.Date getDateOfBirth() {
 		return dateOfBirth;
 	}
@@ -105,6 +114,7 @@ public class User {
 	}
 
 	@XmlElement(name = "hPhone")
+	@JsonProperty("hPhone")
 	public String getHomePhone() {
 		return homePhone;
 	}
@@ -114,6 +124,7 @@ public class User {
 	}
 
 	@XmlElement(name = "cPhone")
+	@JsonProperty("cPhone")
 	public String getCellPhone() {
 		return cellPhone;
 	}
@@ -123,6 +134,7 @@ public class User {
 	}
 
 	@XmlElement(name = "wPhone")
+	@JsonProperty("wPhone")
 	public String getWorkPhone() {
 		return workPhone;
 	}
@@ -132,6 +144,7 @@ public class User {
 	}
 
 	@XmlElement(name = "addressId")
+	@JsonProperty("addressId")
 	public long getAddressId() {
 		return addressId;
 	}
@@ -141,12 +154,21 @@ public class User {
 	}
 
 	@XmlElement(name = "loginId")
+	@JsonProperty("loginId")
 	public long getLoginId() {
 		return loginId;
 	}
 
 	public void setLoginId(long loginId) {
 		this.loginId = loginId;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", firstName=" + firstName + ", middleName=" + middleName
+				+ ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth + ", homePhone=" + homePhone
+				+ ", cellPhone=" + cellPhone + ", workPhone=" + workPhone + ", addressId=" + addressId + ", loginId="
+				+ loginId + "]";
 	}
 
 }

@@ -28,7 +28,7 @@ public class InstructorService implements IInstructorService {
 	private IDepartmentDao<Department> departmentDao = new DepartmentDao();
 	private ICredientalsDao<Credientals> credientalsDao = new CredientalsDao();
 	private IUserDao<User> userDao = new UserDao();
-	private static final Logger log = LogManager.getLogger(InstructorService.class.getName());
+	private static final Logger LOG = LogManager.getLogger(InstructorService.class.getName());
 
 	@Override
 	public Instructor getInstructorById(long id) {
@@ -37,7 +37,7 @@ public class InstructorService implements IInstructorService {
 		try {
 			i = instructorDao.readEntity(id);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		i.setPositions(positionDao.getPositionById(id));
 		i.setDepartments(departmentDao.getDepartmentById(id));
@@ -45,7 +45,7 @@ public class InstructorService implements IInstructorService {
 		try {
 			i.setUsers(userDao.getUserById(id));
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		return i;
 	}

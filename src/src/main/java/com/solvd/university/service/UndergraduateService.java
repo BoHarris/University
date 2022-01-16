@@ -31,7 +31,7 @@ public class UndergraduateService implements IUndergraduateService {
 			log.error(e.getMessage());
 		}
 		try {
-			u.setUsers(userDao.getUserById(u.getId()));
+			u.setUsers(userDao.getUsers());
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}

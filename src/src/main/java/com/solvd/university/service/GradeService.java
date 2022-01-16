@@ -16,7 +16,7 @@ import src.main.java.com.solvd.university.service.interfaces.IGradeService;
 public class GradeService implements IGradeService {
 	private IGradeDao<Grade> gradeDao = new GradeDao();
 	private IUndergraduateDao<Undergraduate> undergraduateDao = new UndergraduateDao();
-	private static final Logger log = LogManager.getLogger(GradeService.class.getName());
+	private static final Logger LOG = LogManager.getLogger(GradeService.class.getName());
 
 	@Override
 	public Grade getGradeById(long id) {
@@ -25,7 +25,7 @@ public class GradeService implements IGradeService {
 		try {
 			g = gradeDao.readEntity(id);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		g.setUndergraduates(undergraduateDao.getUndergraduateById(id));
 		return g;

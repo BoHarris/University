@@ -16,7 +16,7 @@ import src.main.java.com.solvd.university.service.interfaces.ICountryService;
 public class CountryService implements ICountryService {
 	private ICountryDao<Country> countryDao = new CountryDao();
 	private IStateDao<State> statesDao = new StateDao();
-	private static final Logger log = LogManager.getLogger(CountryService.class.getName());
+	private static final Logger LOG = LogManager.getLogger(CountryService.class.getName());
 
 	@Override
 	public Country getCountryById(long id) {
@@ -25,12 +25,12 @@ public class CountryService implements ICountryService {
 		try {
 			c = countryDao.readEntity(id);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		try {
 			c.setStates(statesDao.getStateById(id));
 		} catch (SQLException e) {
-			log.debug(e.getMessage());
+			LOG.debug(e.getMessage());
 		}
 		return c;
 	}

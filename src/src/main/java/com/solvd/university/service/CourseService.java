@@ -32,7 +32,7 @@ public class CourseService implements ICourseSerivce {
 	private IInstructorDao<Instructor> instructorDao = new InstructorDao();
 	private IDepartmentDao<Department> departmentDao = new DepartmentDao();
 	private ITermDao<Term> termDao = new TermDao();
-	private static final Logger log = LogManager.getLogger(CourseService.class.getName());
+	private static final Logger LOG = LogManager.getLogger(CourseService.class.getName());
 
 	@Override
 	public Course getCourseById(long id) {
@@ -41,7 +41,7 @@ public class CourseService implements ICourseSerivce {
 		try {
 			c = courseDao.readEntity(id);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		c.setPrerequisits(prerequisiteDao.getPrerequisiteById(id));
 		c.setCourseMaterials(courseMaterialDao.getCourseMaterialById(id));

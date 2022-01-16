@@ -21,6 +21,16 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 	private static final String CREATE_LOGIN = "Insert into Login" + " ( name,password ) VALUES (?,?)";
 	private static final String UPDATE_LOGIN = "Update Login set name = ? where name = ?";
 	private static final String DELETE_LOGIN = "Delete from Address where id = ?";
+	private static final String GET_ALL_LOGIN = "Select * from Login";
+	private Long loginId;
+
+	public Long getLoginId() {
+		return loginId;
+	}
+
+	public Long setLoginId(Long loginId) {
+		return this.loginId = loginId;
+	}
 
 	@Override
 	public void createEntity(Login entity) throws SQLException {
@@ -72,7 +82,8 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 				String name = resultSet.getString(2);
 				String password = resultSet.getString(3);
 
-				login.setId(resultSet.getLong(1));
+				loginId = setLoginId(login.setId(id));
+
 				login.setName(name);
 				login.setPassword(password);
 
@@ -128,24 +139,23 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 	}
 
 	@Override
-	public List<Login> getLoginById(long id) throws SQLException {
+	public List<Login> getLogins() throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
-		List<Login> states = new ArrayList<>();
+		List<Login> logins = new ArrayList<>();
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_LOGIN_BY_ID);
-			statement.setLong(1, id);
+			statement = connection.prepareStatement(GET_ALL_LOGIN);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				Login Login = new Login();
-				Login.setId(resultSet.getLong("id"));
-				Login.setName(resultSet.getString("name"));
-
+				Login login = new Login();
+				login.setId(resultSet.getLong("id"));
+				login.setName(resultSet.getString("name"));
+				logins.add(login);
 			}
-			log.info(states);
+			log.info(logins);
 		} catch (Exception e) {
 			log.error(e.getMessage());
 		} finally {
@@ -153,7 +163,7 @@ public class LoginDao extends AbstractMySQLDao implements ILoginDao<Login> {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
 		}
-		return states;
+		return logins;
 
 	}
 }

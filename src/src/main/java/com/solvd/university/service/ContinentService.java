@@ -16,7 +16,7 @@ import src.main.java.com.solvd.university.service.interfaces.IContinentService;
 public class ContinentService implements IContinentService {
 	private IContinentDao<Continent> continentDao = new ContinentDao();
 	private ICountryDao<Country> countryDao = new CountryDao();
-	private static final Logger log = LogManager.getLogger(Continent.class.getName());
+	private static final Logger LOG = LogManager.getLogger(Continent.class.getName());
 
 	@Override
 	public Continent getContinentById(long id) {
@@ -25,12 +25,12 @@ public class ContinentService implements IContinentService {
 		try {
 			c = continentDao.readEntity(id);
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		try {
 			c.setCountries(countryDao.getCountryById(id));
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		return c;
 	}

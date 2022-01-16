@@ -11,17 +11,28 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import src.main.java.com.solvd.university.DAO.ICountryDao;
+import src.main.java.com.solvd.university.model.address.Continent;
 import src.main.java.com.solvd.university.model.address.Country;
 import src.main.java.com.solvd.university.model.connection.ConnectionPool;
 
 public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country> {
 
-	private static final Logger log = LogManager.getLogger(CountryDao.class);
+	private static final Logger LOG = LogManager.getLogger(CountryDao.class);
 	private static final String GET_COUNTRY_BY_ID = "Select * from Country where id=?";
 	private static final String CREATE_COUNTRY = "Insert into Country"
 			+ " ( name, country_code, continent_id) VALUES (?,?,?)";
 	private static final String UPDATE_COUNTRY = "Update Country set zipcode = ? where name = ?";
 	private static final String DELETE_COUNTRY = "Delete from Address where id = ?";
+	private static final String GET_ALL_COUNTRIES = "Select * from Country";
+	private Long countryId;
+
+	public Long getCountryId() {
+		return countryId;
+	}
+
+	public Long setCountryId(Long countryId) {
+		return this.countryId = countryId;
+	}
 
 	@Override
 	public void createEntity(Country entity) throws SQLException {
@@ -35,7 +46,7 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 			statement.setLong(3, entity.getContinentId());
 			statement.executeUpdate();
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		statement.close();
 		ConnectionPool.getInstance().releaseConnection(connection);
@@ -59,7 +70,7 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 		} catch (
 
 		Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			resultSet.close();
 			statement.close();
@@ -78,21 +89,21 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 				String name = resultSet.getString(2);
 				String countrycode = resultSet.getString(3);
 				Long continentId = resultSet.getLong(4);
-				country.setId(resultSet.getLong(1));
+				countryId = setCountryId(country.setId(id));
 				country.setName(name);
 				country.setCountryCode(countrycode);
-				country.setContientId(continentId);
+				country.setContinentId(continentId);
 
 				id = country.getId();
 				name = country.getName();
 				countrycode = country.getCountryCode();
-				log.debug(id + " " + name + " " + " " + countrycode + " " + continentId);
+				LOG.debug(id + " " + name + " " + " " + countrycode + " " + continentId);
 
 				return country;
 			}
 
 		} catch (SQLException e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		return null;
 	}
@@ -108,7 +119,7 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
@@ -127,7 +138,7 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			log.error(e);
+			LOG.error(e);
 		} finally {
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
@@ -136,33 +147,38 @@ public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country>
 	}
 
 	@Override
-	public List<Country> getCountryById(long id) throws SQLException {
+	public List<Country> getCountries() throws SQLException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 
-		List<Country> cities = new ArrayList<>();
+		List<Country> countries = new ArrayList<>();
 		try {
 			connection = ConnectionPool.getInstance().getConnection();
-			statement = connection.prepareStatement(GET_COUNTRY_BY_ID);
-			statement.setLong(1, id);
+			statement = connection.prepareStatement(GET_ALL_COUNTRIES);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
-				Country Country = new Country();
-				Country.setId(resultSet.getLong("id"));
-				Country.setName(resultSet.getString("name"));
-				Country.setCountryCode(resultSet.getString("country_code"));
-
+				Country country = new Country();
+				country.setId(resultSet.getLong("id"));
+				country.setName(resultSet.getString("name"));
+				country.setCountryCode(resultSet.getString("country_code"));
+				countries.add(country);
 			}
-			log.info(cities);
+			LOG.info(countries);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			LOG.error(e.getMessage());
 		} finally {
 			resultSet.close();
 			statement.close();
 			ConnectionPool.getInstance().releaseConnection(connection);
 		}
-		return cities;
+		return countries;
 
+	}
+
+	@Override
+	public List<Country> getCountryById(long id) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
