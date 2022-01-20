@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="universitytesting">
+	<test name="testNGTest">
+		<classes>
+			<class name="com.solvd.university.test.TestNG" />
+		</classes>
+	</test>
+</suite>
+

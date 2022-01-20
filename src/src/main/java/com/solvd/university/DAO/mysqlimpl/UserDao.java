@@ -220,5 +220,7 @@ public class UserDao extends AbstractMySQLDao implements IUserDao<User> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 }
