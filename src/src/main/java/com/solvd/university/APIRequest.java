@@ -17,11 +17,11 @@ public class APIRequest {
 				.uri(URI.create(
 						"https://movie-database-imdb-alternative.p.rapidapi.com/?s=Avengers%20Endgame&r=json&page=1"))
 				.header("x-rapidapi-host", "movie-database-imdb-alternative.p.rapidapi.com")
-				.header("x-rapidapi-key", "aca3e53d40mshcbae7237c06efbbp16b1f6jsn872e4e5c0944")
+				.header("x-rapidapi-key", "API KEY")
 				.method("GET", HttpRequest.BodyPublishers.noBody()).build();
 
 		HttpRequest requestLocal = HttpRequest.newBuilder().uri(URI.create( 
-				"https://192.168.1.77/C:/Users/Bokha/Documents/GitHub/University/src/src/main/resources/User.json"))
+				"https://***.***.*.**/FileDirectory/File.Json"))
 				.build();
 
 		client.sendAsync(request, BodyHandlers.ofString()).thenApply(HttpResponse::body).thenAccept(System.out::println)
