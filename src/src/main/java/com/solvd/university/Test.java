@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.Map;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -18,11 +17,8 @@ import org.apache.logging.log4j.Logger;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Value;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.solvd.university.test.TestNG;
 
 import src.main.java.com.solvd.university.DAO.mysqlimpl.AddressDao;
 import src.main.java.com.solvd.university.DAO.mysqlimpl.CityDao;
@@ -313,6 +309,9 @@ public class Test {
 		Deadlock deadlock = new Deadlock();
 		deadlock.t1.start();
 		deadlock.t2.start();
+
+		APIRequest apiRequest = new APIRequest();
+		apiRequest.ApiCall();
 
 	}
 
