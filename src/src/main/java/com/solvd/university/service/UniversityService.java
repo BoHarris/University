@@ -1,17 +1,17 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.IAddressDao;
-import src.main.java.com.solvd.university.DAO.IUniversityDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.AddressDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.UniversityDao;
-import src.main.java.com.solvd.university.model.University;
-import src.main.java.com.solvd.university.model.address.Address;
-import src.main.java.com.solvd.university.service.interfaces.IUniversityService;
+import com.solvd.university.DAO.IAddressDao;
+import com.solvd.university.DAO.IUniversityDao;
+import com.solvd.university.DAO.mysqlimpl.AddressDao;
+import com.solvd.university.DAO.mysqlimpl.UniversityDao;
+import com.solvd.university.model.University;
+import com.solvd.university.model.address.Address;
+import com.solvd.university.service.interfaces.IUniversityService;
 
 public class UniversityService implements IUniversityService {
 	private static final Logger LOG = LogManager.getLogger(UniversityService.class.getName());

@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +10,9 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.ICountryDao;
-import src.main.java.com.solvd.university.model.address.Continent;
-import src.main.java.com.solvd.university.model.address.Country;
-import src.main.java.com.solvd.university.model.connection.ConnectionPool;
+import com.solvd.university.DAO.ICountryDao;
+import com.solvd.university.model.address.Country;
+import com.solvd.university.model.connection.ConnectionPool;
 
 public class CountryDao extends AbstractMySQLDao implements ICountryDao<Country> {
 

@@ -1,26 +1,26 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.ICredientalsDao;
-import src.main.java.com.solvd.university.DAO.IDepartmentDao;
-import src.main.java.com.solvd.university.DAO.IInstructorDao;
-import src.main.java.com.solvd.university.DAO.IPositionDao;
-import src.main.java.com.solvd.university.DAO.IUserDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CredientalsDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.DepartmentDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.InstructorDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.PositionDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.UserDao;
-import src.main.java.com.solvd.university.model.Credientals;
-import src.main.java.com.solvd.university.model.Department;
-import src.main.java.com.solvd.university.model.Instructor;
-import src.main.java.com.solvd.university.model.Position;
-import src.main.java.com.solvd.university.model.User;
-import src.main.java.com.solvd.university.service.interfaces.IInstructorService;
+import com.solvd.university.DAO.ICredientalsDao;
+import com.solvd.university.DAO.IDepartmentDao;
+import com.solvd.university.DAO.IInstructorDao;
+import com.solvd.university.DAO.IPositionDao;
+import com.solvd.university.DAO.IUserDao;
+import com.solvd.university.DAO.mysqlimpl.CredientalsDao;
+import com.solvd.university.DAO.mysqlimpl.DepartmentDao;
+import com.solvd.university.DAO.mysqlimpl.InstructorDao;
+import com.solvd.university.DAO.mysqlimpl.PositionDao;
+import com.solvd.university.DAO.mysqlimpl.UserDao;
+import com.solvd.university.model.Credientals;
+import com.solvd.university.model.Department;
+import com.solvd.university.model.Instructor;
+import com.solvd.university.model.Position;
+import com.solvd.university.model.User;
+import com.solvd.university.service.interfaces.IInstructorService;
 
 public class InstructorService implements IInstructorService {
 	private IInstructorDao<Instructor> instructorDao = new InstructorDao();

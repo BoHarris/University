@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.enums;
+package com.solvd.university.enums;
 
 public enum CREDIENTALS {
 

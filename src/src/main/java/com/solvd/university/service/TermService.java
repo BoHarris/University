@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.Term;
-import src.main.java.com.solvd.university.service.interfaces.ITermSerivce;
+import com.solvd.university.model.Term;
+import com.solvd.university.service.interfaces.ITermSerivce;
 
 public class TermService implements ITermSerivce {
 

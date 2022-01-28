@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.model;
+package com.solvd.university.model;
 
 public class Prerequisite {
 	private Long id;

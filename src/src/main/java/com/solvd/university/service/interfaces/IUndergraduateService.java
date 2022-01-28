@@ -1,6 +1,6 @@
-package src.main.java.com.solvd.university.service.interfaces;
+package com.solvd.university.service.interfaces;
 
-import src.main.java.com.solvd.university.model.Undergraduate;
+import com.solvd.university.model.Undergraduate;
 
 public interface IUndergraduateService {
 	Undergraduate getUndergraduateById(long id);

@@ -1,11 +1,11 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.ICredientalsDao;
-import src.main.java.com.solvd.university.model.Credientals;
-
+import com.solvd.university.DAO.ICredientalsDao;
+import com.solvd.university.model.Credientals;
+ 
 public class CredientalsDao extends AbstractMySQLDao implements ICredientalsDao<Credientals> {
 
 	@Override

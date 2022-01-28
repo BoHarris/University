@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.Login;
-import src.main.java.com.solvd.university.service.interfaces.ILoginService;
+import com.solvd.university.model.Login;
+import com.solvd.university.service.interfaces.ILoginService;
 
 public class LoginService implements ILoginService {
 

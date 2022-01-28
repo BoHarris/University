@@ -1,17 +1,17 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.IContinentDao;
-import src.main.java.com.solvd.university.DAO.ICountryDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.ContinentDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CountryDao;
-import src.main.java.com.solvd.university.model.address.Continent;
-import src.main.java.com.solvd.university.model.address.Country;
-import src.main.java.com.solvd.university.service.interfaces.IContinentService;
+import com.solvd.university.DAO.IContinentDao;
+import com.solvd.university.DAO.ICountryDao;
+import com.solvd.university.DAO.mysqlimpl.ContinentDao;
+import com.solvd.university.DAO.mysqlimpl.CountryDao;
+import com.solvd.university.model.address.Continent;
+import com.solvd.university.model.address.Country;
+import com.solvd.university.service.interfaces.IContinentService;
 
 public class ContinentService implements IContinentService {
 	private IContinentDao<Continent> continentDao = new ContinentDao();

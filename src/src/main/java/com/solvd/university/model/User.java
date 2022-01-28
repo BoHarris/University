@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.model;
+package com.solvd.university.model;
 
 import java.sql.Date;
 
@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import src.main.java.com.solvd.university.DateAdapter;
+import com.solvd.university.DateAdapter;
 
 @XmlRootElement(name = "user")
 @XmlType(propOrder = { "email", "firstName", "middleName", "lastName", "dateOfBirth", "homePhone", "cellPhone",

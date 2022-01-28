@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.Credientals;
-import src.main.java.com.solvd.university.service.interfaces.ICredientalsService;
+import com.solvd.university.model.Credientals;
+import com.solvd.university.service.interfaces.ICredientalsService;
 
 public class CredientalsService implements ICredientalsService {
 

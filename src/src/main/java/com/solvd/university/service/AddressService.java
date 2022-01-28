@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.address.Address;
-import src.main.java.com.solvd.university.service.interfaces.IAddressService;
+import com.solvd.university.model.address.Address;
+import com.solvd.university.service.interfaces.IAddressService;
 
 public class AddressService implements IAddressService {
 

@@ -1,20 +1,20 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.ICourseDao;
-import src.main.java.com.solvd.university.DAO.IUndergraduateDao;
-import src.main.java.com.solvd.university.DAO.IUserDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CourseDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.UndergraduateDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.UserDao;
-import src.main.java.com.solvd.university.model.Course;
-import src.main.java.com.solvd.university.model.Undergraduate;
-import src.main.java.com.solvd.university.model.User;
-import src.main.java.com.solvd.university.service.interfaces.IUndergraduateService;
+import com.solvd.university.DAO.ICourseDao;
+import com.solvd.university.DAO.IUndergraduateDao;
+import com.solvd.university.DAO.IUserDao;
+import com.solvd.university.DAO.mysqlimpl.CourseDao;
+import com.solvd.university.DAO.mysqlimpl.UndergraduateDao;
+import com.solvd.university.DAO.mysqlimpl.UserDao;
+import com.solvd.university.model.Course;
+import com.solvd.university.model.Undergraduate;
+import com.solvd.university.model.User;
+import com.solvd.university.service.interfaces.IUndergraduateService;
 
 public class UndergraduateService implements IUndergraduateService {
 	private IUndergraduateDao<Undergraduate> undergraduateDao = new UndergraduateDao();

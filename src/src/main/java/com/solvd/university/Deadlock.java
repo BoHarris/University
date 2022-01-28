@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university;
+package com.solvd.university;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

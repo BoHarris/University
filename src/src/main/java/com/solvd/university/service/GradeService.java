@@ -1,17 +1,17 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.IGradeDao;
-import src.main.java.com.solvd.university.DAO.IUndergraduateDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.GradeDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.UndergraduateDao;
-import src.main.java.com.solvd.university.model.Grade;
-import src.main.java.com.solvd.university.model.Undergraduate;
-import src.main.java.com.solvd.university.service.interfaces.IGradeService;
+import com.solvd.university.DAO.IGradeDao;
+import com.solvd.university.DAO.IUndergraduateDao;
+import com.solvd.university.DAO.mysqlimpl.GradeDao;
+import com.solvd.university.DAO.mysqlimpl.UndergraduateDao;
+import com.solvd.university.model.Grade;
+import com.solvd.university.model.Undergraduate;
+import com.solvd.university.service.interfaces.IGradeService;
 
 public class GradeService implements IGradeService {
 	private IGradeDao<Grade> gradeDao = new GradeDao();

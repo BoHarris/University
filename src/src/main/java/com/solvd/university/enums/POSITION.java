@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.enums;
+package com.solvd.university.enums;
 
 public enum POSITION {
 	INSTRUCTOR("Instructor"), ASSISTANT_PROFESSOR("Assistant Professor"), ASSOCIATE_PROFESSOR("Associate Professor"),

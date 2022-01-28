@@ -1,4 +1,4 @@
-package com.solvd.university.test;
+package com.solvd.university.testNG;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -19,20 +19,20 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import src.main.java.com.solvd.university.DAO.mysqlimpl.AddressDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CityDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.ContinentDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CountryDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.LoginDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.StateDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.UserDao;
-import src.main.java.com.solvd.university.model.Login;
-import src.main.java.com.solvd.university.model.User;
-import src.main.java.com.solvd.university.model.address.Address;
-import src.main.java.com.solvd.university.model.address.City;
-import src.main.java.com.solvd.university.model.address.Continent;
-import src.main.java.com.solvd.university.model.address.Country;
-import src.main.java.com.solvd.university.model.address.State;
+import com.solvd.university.DAO.mysqlimpl.AddressDao;
+import com.solvd.university.DAO.mysqlimpl.CityDao;
+import com.solvd.university.DAO.mysqlimpl.ContinentDao;
+import com.solvd.university.DAO.mysqlimpl.CountryDao;
+import com.solvd.university.DAO.mysqlimpl.LoginDao;
+import com.solvd.university.DAO.mysqlimpl.StateDao;
+import com.solvd.university.DAO.mysqlimpl.UserDao;
+import com.solvd.university.model.Login;
+import com.solvd.university.model.User;
+import com.solvd.university.model.address.Address;
+import com.solvd.university.model.address.City;
+import com.solvd.university.model.address.Continent;
+import com.solvd.university.model.address.Country;
+import com.solvd.university.model.address.State;
 
 public class TestNG {
 	private static final Logger LOG = LogManager.getLogger(TestNG.class.getName());

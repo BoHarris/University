@@ -1,11 +1,11 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.IGradeDao;
-import src.main.java.com.solvd.university.model.Grade;
-
+import com.solvd.university.DAO.IGradeDao;
+import com.solvd.university.model.Grade;
+ 
 public class GradeDao extends AbstractMySQLDao implements IGradeDao<Grade> {
 
 	@Override

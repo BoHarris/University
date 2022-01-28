@@ -1,17 +1,17 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.IAddressDao;
-import src.main.java.com.solvd.university.DAO.ICityDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.AddressDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CityDao;
-import src.main.java.com.solvd.university.model.address.Address;
-import src.main.java.com.solvd.university.model.address.City;
-import src.main.java.com.solvd.university.service.interfaces.ICitySerivce;
+import com.solvd.university.DAO.IAddressDao;
+import com.solvd.university.DAO.ICityDao;
+import com.solvd.university.DAO.mysqlimpl.AddressDao;
+import com.solvd.university.DAO.mysqlimpl.CityDao;
+import com.solvd.university.model.address.Address;
+import com.solvd.university.model.address.City;
+import com.solvd.university.service.interfaces.ICitySerivce;
 
 public class CityService implements ICitySerivce {
 	private ICityDao<City> cityDao = new CityDao();

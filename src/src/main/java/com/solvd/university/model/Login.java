@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.model;
+package com.solvd.university.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

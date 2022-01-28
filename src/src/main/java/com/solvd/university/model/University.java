@@ -1,8 +1,8 @@
-package src.main.java.com.solvd.university.model;
+package com.solvd.university.model;
 
 import java.util.List;
 
-import src.main.java.com.solvd.university.model.address.Address;
+import com.solvd.university.model.address.Address;
 
 public class University {
 	private Long id;

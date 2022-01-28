@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.DAO;
+package com.solvd.university.DAO;
 
 import java.util.List;
 

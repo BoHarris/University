@@ -1,10 +1,10 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.ITermDao;
-import src.main.java.com.solvd.university.model.Term;
+import com.solvd.university.DAO.ITermDao;
+import com.solvd.university.model.Term;
 
 public class TermDao extends AbstractMySQLDao implements ITermDao<Term> {
 

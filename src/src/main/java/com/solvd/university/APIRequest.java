@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university;
+package com.solvd.university;
 
 import java.net.URI;
 import java.net.http.HttpClient;

@@ -1,11 +1,11 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.IUndergraduateDao;
-import src.main.java.com.solvd.university.model.Undergraduate;
-
+import com.solvd.university.DAO.IUndergraduateDao;
+import com.solvd.university.model.Undergraduate;
+ 
 public class UndergraduateDao extends AbstractMySQLDao implements IUndergraduateDao<Undergraduate> {
 
 	@Override

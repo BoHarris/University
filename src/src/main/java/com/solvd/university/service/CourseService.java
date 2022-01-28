@@ -1,30 +1,30 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.ICourseDao;
-import src.main.java.com.solvd.university.DAO.ICourseMaterialDao;
-import src.main.java.com.solvd.university.DAO.IDepartmentDao;
-import src.main.java.com.solvd.university.DAO.IInstructorDao;
-import src.main.java.com.solvd.university.DAO.IPrerequisiteDao;
-import src.main.java.com.solvd.university.DAO.ITermDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CourseDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CourseMaterialDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.DepartmentDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.InstructorDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.PrerequisiteDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.TermDao;
-import src.main.java.com.solvd.university.model.Course;
-import src.main.java.com.solvd.university.model.CourseMaterial;
-import src.main.java.com.solvd.university.model.Department;
-import src.main.java.com.solvd.university.model.Instructor;
-import src.main.java.com.solvd.university.model.Prerequisite;
-import src.main.java.com.solvd.university.model.Term;
-import src.main.java.com.solvd.university.service.interfaces.ICourseSerivce;
-
+import com.solvd.university.DAO.ICourseDao;
+import com.solvd.university.DAO.ICourseMaterialDao;
+import com.solvd.university.DAO.IDepartmentDao;
+import com.solvd.university.DAO.IInstructorDao;
+import com.solvd.university.DAO.IPrerequisiteDao;
+import com.solvd.university.DAO.ITermDao;
+import com.solvd.university.DAO.mysqlimpl.CourseDao;
+import com.solvd.university.DAO.mysqlimpl.CourseMaterialDao;
+import com.solvd.university.DAO.mysqlimpl.DepartmentDao;
+import com.solvd.university.DAO.mysqlimpl.InstructorDao;
+import com.solvd.university.DAO.mysqlimpl.PrerequisiteDao;
+import com.solvd.university.DAO.mysqlimpl.TermDao;
+import com.solvd.university.model.Course;
+import com.solvd.university.model.CourseMaterial;
+import com.solvd.university.model.Department;
+import com.solvd.university.model.Instructor;
+import com.solvd.university.model.Prerequisite;
+import com.solvd.university.model.Term;
+import com.solvd.university.service.interfaces.ICourseSerivce;
+ 
 public class CourseService implements ICourseSerivce {
 	private ICourseDao<Course> courseDao = new CourseDao();
 	private IPrerequisiteDao<Prerequisite> prerequisiteDao = new PrerequisiteDao();

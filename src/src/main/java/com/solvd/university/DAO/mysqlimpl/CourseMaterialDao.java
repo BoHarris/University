@@ -1,10 +1,10 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.ICourseMaterialDao;
-import src.main.java.com.solvd.university.model.CourseMaterial;
+import com.solvd.university.DAO.ICourseMaterialDao;
+import com.solvd.university.model.CourseMaterial;
 
 public class CourseMaterialDao extends AbstractMySQLDao implements ICourseMaterialDao<CourseMaterial> {
 

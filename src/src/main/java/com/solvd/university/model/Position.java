@@ -1,6 +1,6 @@
-package src.main.java.com.solvd.university.model;
+package com.solvd.university.model;
 
-import src.main.java.com.solvd.university.enums.POSITION;
+import com.solvd.university.enums.POSITION;
 
 public class Position {
 	private Long id;

@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.model;
+package com.solvd.university.model;
 
-import src.main.java.com.solvd.university.enums.CREDIENTALS;
-
+import com.solvd.university.enums.CREDIENTALS;
+ 
 public class Credientals {
 	private Long id;
 	private CREDIENTALS credientals;

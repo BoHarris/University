@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.Prerequisite;
-import src.main.java.com.solvd.university.service.interfaces.IPrerequisiteService;
+import com.solvd.university.model.Prerequisite;
+import com.solvd.university.service.interfaces.IPrerequisiteService;
 
 public class PrerequisiteService implements IPrerequisiteService {
 

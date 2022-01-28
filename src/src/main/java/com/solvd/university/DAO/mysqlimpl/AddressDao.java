@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +10,9 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.IAddressDao;
-import src.main.java.com.solvd.university.model.address.Address;
-import src.main.java.com.solvd.university.model.connection.ConnectionPool;
+import com.solvd.university.DAO.IAddressDao;
+import com.solvd.university.model.address.Address;
+import com.solvd.university.model.connection.ConnectionPool;
 
 public class AddressDao extends AbstractMySQLDao implements IAddressDao<Address> {
 	private static final Logger log = LogManager.getLogger(AddressDao.class);

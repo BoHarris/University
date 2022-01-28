@@ -1,20 +1,17 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
 import java.sql.SQLException;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import src.main.java.com.solvd.university.DAO.ICityDao;
-import src.main.java.com.solvd.university.DAO.ICountryDao;
-import src.main.java.com.solvd.university.DAO.IStateDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CityDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.CountryDao;
-import src.main.java.com.solvd.university.DAO.mysqlimpl.StateDao;
-import src.main.java.com.solvd.university.model.address.City;
-import src.main.java.com.solvd.university.model.address.Country;
-import src.main.java.com.solvd.university.model.address.State;
-import src.main.java.com.solvd.university.service.interfaces.IStateService;
+import com.solvd.university.DAO.ICityDao;
+import com.solvd.university.DAO.IStateDao;
+import com.solvd.university.DAO.mysqlimpl.CityDao;
+import com.solvd.university.DAO.mysqlimpl.StateDao;
+import com.solvd.university.model.address.City;
+import com.solvd.university.model.address.State;
+import com.solvd.university.service.interfaces.IStateService;
 
 public class StateService implements IStateService {
 	private IStateDao<State> stateDao = new StateDao();

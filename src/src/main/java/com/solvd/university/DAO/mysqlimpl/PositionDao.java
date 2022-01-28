@@ -1,11 +1,11 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.IPositionDao;
-import src.main.java.com.solvd.university.model.Position;
-
+import com.solvd.university.DAO.IPositionDao;
+import com.solvd.university.model.Position;
+ 
 public class PositionDao extends AbstractMySQLDao implements IPositionDao<Position> {
 
 	@Override

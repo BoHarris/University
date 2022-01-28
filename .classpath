@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="src/main/resources/" kind="src" path="src"/>
 	<classpathentry kind="src" path="src/src/main/resources"/>
-	<classpathentry kind="src" path="Test"/>
+	<classpathentry kind="src" path="src/src/test/java"/>
+	<classpathentry kind="src" path="src/src/main/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -23,5 +23,6 @@
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/Jackson/jackson-databind-2.13.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/Jackson/jackson-annotations-2.13.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/Jackson/jackson-core-2.13.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Bokha/Desktop/MAKE SURE TO UPDATE JAR FILES/jarfiles/carina-core/carina-core-7.2.14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

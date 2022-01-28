@@ -1,8 +1,8 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.CourseMaterial;
-import src.main.java.com.solvd.university.service.interfaces.ICourseMaterialService;
-
+import com.solvd.university.model.CourseMaterial;
+import com.solvd.university.service.interfaces.ICourseMaterialService;
+ 
 public class CourseMaterialService implements ICourseMaterialService {
 
 	@Override

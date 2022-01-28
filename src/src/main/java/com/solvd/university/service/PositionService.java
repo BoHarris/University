@@ -1,7 +1,7 @@
-package src.main.java.com.solvd.university.service;
+package com.solvd.university.service;
 
-import src.main.java.com.solvd.university.model.Position;
-import src.main.java.com.solvd.university.service.interfaces.IPositionService;
+import com.solvd.university.model.Position;
+import com.solvd.university.service.interfaces.IPositionService;
 
 public class PositionService implements IPositionService {
 

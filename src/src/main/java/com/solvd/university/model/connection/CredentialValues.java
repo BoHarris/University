@@ -1,4 +1,4 @@
-package src.main.java.com.solvd.university.model.connection;
+package com.solvd.university.model.connection;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,11 +1,11 @@
-package src.main.java.com.solvd.university.DAO.mysqlimpl;
+package com.solvd.university.DAO.mysqlimpl;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import src.main.java.com.solvd.university.DAO.IPrerequisiteDao;
-import src.main.java.com.solvd.university.model.Prerequisite;
-
+import com.solvd.university.DAO.IPrerequisiteDao;
+import com.solvd.university.model.Prerequisite;
+ 
 public class PrerequisiteDao extends AbstractMySQLDao implements IPrerequisiteDao<Prerequisite> {
 
 	@Override
